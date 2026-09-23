@@ -28,7 +28,6 @@
 
     header h1 {
       font-size: 32px;
-      margin-bottom: 5px;
     }
 
     nav {
@@ -40,10 +39,6 @@
       text-decoration: none;
       margin: 0 10px;
       font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
     }
 
     section {
@@ -153,23 +148,29 @@
       display: none;
       background: #e1f5eb;
       border: 1px solid #79c9a5;
-      padding: 25px;
+      padding: 30px;
       border-radius: 12px;
-      margin-top: 25px;
+      margin: 25px auto;
+      max-width: 650px;
       text-align: center;
     }
 
     #confirmation h3 {
       color: #176044;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      font-size: 25px;
     }
 
     footer {
       background: #173f35;
       color: white;
       text-align: center;
-      padding: 35px 20px;
+      padding: 40px 20px;
       margin-top: 30px;
+    }
+
+    footer p {
+      margin: 8px 0;
     }
 
     footer a {
@@ -213,46 +214,77 @@
   </nav>
 </header>
 
+
 <section id="start">
+
   <div class="hero">
+
     <h2>Zadbaj o swoje ciało</h2>
+
     <p>
-      Profesjonalny masaż i fizjoterapia dopasowane do Twoich potrzeb.
+      Profesjonalny masaż i fizjoterapia
+      dopasowane do Twoich potrzeb.
     </p>
 
     <a href="#rezerwacja" class="button">
       Umów wizytę
     </a>
+
   </div>
+
 </section>
 
+
 <section id="masaz">
+
   <h2>Masaż</h2>
 
   <div class="cards">
 
     <div class="card">
+
       <h3>Masaż</h3>
-      <p>Relaks i rozluźnienie mięśni.</p>
-      <div class="price">6 zł / 20 min</div>
+
+      <p>
+        Relaks i rozluźnienie mięśni.
+      </p>
+
+      <div class="price">
+        5 zł / 20 min
+      </div>
+
     </div>
 
   </div>
+
 </section>
 
+
 <section id="fizjoterapia">
+
   <h2>Fizjoterapia</h2>
 
   <div class="cards">
 
     <div class="card">
+
       <h3>Fizjoterapia</h3>
-      <p>Indywidualna praca dopasowana do potrzeb.</p>
-      <div class="price">6 zł / 20 min</div>
+
+      <p>
+        Indywidualna praca dopasowana
+        do potrzeb klienta.
+      </p>
+
+      <div class="price">
+        6 zł / 20 min
+      </div>
+
     </div>
 
   </div>
+
 </section>
+
 
 <section id="rezerwacja">
 
@@ -260,25 +292,43 @@
 
   <form id="bookingForm">
 
-    <label for="service">Wybierz usługę</label>
+    <label for="service">
+      Wybierz usługę
+    </label>
 
     <select id="service" required>
-      <option value="">-- Wybierz usługę --</option>
-      <option value="Masaż">Masaż – 6 zł / 20 min</option>
-      <option value="Fizjoterapia">Fizjoterapia – 6 zł / 20 min</option>
+
+      <option value="">
+        -- Wybierz usługę --
+      </option>
+
+      <option value="Masaż – 5 zł / 20 min">
+        Masaż – 5 zł / 20 min
+      </option>
+
+      <option value="Fizjoterapia – 6 zł / 20 min">
+        Fizjoterapia – 6 zł / 20 min
+      </option>
+
     </select>
 
 
-    <label for="specialist">Wybierz specjalistę</label>
+    <label for="specialist">
+      Wybierz specjalistę
+    </label>
 
     <select id="specialist" required>
+
       <option value="Kacper Olędzki">
         Kacper Olędzki
       </option>
+
     </select>
 
 
-    <label for="date">Wybierz dzień</label>
+    <label for="date">
+      Wybierz dzień
+    </label>
 
     <input
       type="date"
@@ -287,11 +337,15 @@
     >
 
 
-    <label for="time">Wybierz godzinę</label>
+    <label for="time">
+      Wybierz godzinę
+    </label>
 
     <select id="time" required>
 
-      <option value="">-- Wybierz godzinę --</option>
+      <option value="">
+        -- Wybierz godzinę --
+      </option>
 
       <option>08:00</option>
       <option>08:20</option>
@@ -344,7 +398,9 @@
     </select>
 
 
-    <label for="name">Imię i nazwisko</label>
+    <label for="name">
+      Imię i nazwisko
+    </label>
 
     <input
       type="text"
@@ -354,7 +410,9 @@
     >
 
 
-    <label for="phone">Numer telefonu</label>
+    <label for="phone">
+      Numer telefonu
+    </label>
 
     <input
       type="tel"
@@ -364,7 +422,9 @@
     >
 
 
-    <label for="email">E-mail</label>
+    <label for="email">
+      E-mail
+    </label>
 
     <input
       type="email"
@@ -386,14 +446,18 @@
 
   <div id="confirmation">
 
-    <h3>Dziękujemy za rezerwację!</h3>
+    <h3>
+      Dziękujemy za zaufanie!
+    </h3>
 
     <p>
-      Twoje zgłoszenie zostało przyjęte.
+      Twoje zgłoszenie dotyczące wizyty zostało przyjęte.
     </p>
 
     <p>
-      Prosimy o oczekiwanie na potwierdzenie wizyty przez specjalistę.
+      <strong>
+        Prosimy o oczekiwanie na potwierdzenie wizyty przez specjalistę.
+      </strong>
     </p>
 
     <br>
@@ -426,8 +490,8 @@
     </p>
 
     <p>
-      👤 Specjalista:
-      <strong>Kacper Olędzki</strong>
+      📍 Adres:
+      <strong>Adamów 8</strong>
     </p>
 
   </div>
@@ -438,11 +502,22 @@
 <footer>
 
   <p>
-    © 2026 Fizio – Fizjoterapia i Masaż
+    📞 791 671 346
   </p>
 
   <p>
-    6 zł / 20 min
+    ✉️
+    <a href="mailto:kacperson.0613@gmail.com">
+      kacperson.0613@gmail.com
+    </a>
+  </p>
+
+  <p>
+    📍 Adamów 8
+  </p>
+
+  <p style="margin-top: 20px;">
+    © 2026 Fizio – Fizjoterapia i Masaż
   </p>
 
 </footer>
@@ -450,24 +525,30 @@
 
 <script>
 
-  // Ustawienie minimalnej daty na dzisiaj
+  // Nie pozwala wybrać daty wcześniejszej niż dzisiaj
 
-  const dateInput = document.getElementById("date");
+  const dateInput =
+    document.getElementById("date");
 
   const today = new Date();
 
-  const year = today.getFullYear();
+  const year =
+    today.getFullYear();
 
-  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const month =
+    String(today.getMonth() + 1).padStart(2, "0");
 
-  const day = String(today.getDate()).padStart(2, "0");
+  const day =
+    String(today.getDate()).padStart(2, "0");
 
-  dateInput.min = `${year}-${month}-${day}`;
+  dateInput.min =
+    `${year}-${month}-${day}`;
 
 
-  // Obsługa rezerwacji
+  // Obsługa formularza
 
-  const form = document.getElementById("bookingForm");
+  const form =
+    document.getElementById("bookingForm");
 
   const confirmation =
     document.getElementById("confirmation");
@@ -479,7 +560,6 @@
   form.addEventListener("submit", function(event) {
 
     event.preventDefault();
-
 
     const service =
       document.getElementById("service").value;
@@ -504,9 +584,9 @@
 
 
     bookingDetails.innerHTML =
+
       `<strong>Usługa:</strong> ${service}<br>
        <strong>Czas:</strong> 20 minut<br>
-       <strong>Cena:</strong> 6 zł<br>
        <strong>Specjalista:</strong> ${specialist}<br>
        <strong>Data:</strong> ${date}<br>
        <strong>Godzina:</strong> ${time}<br>
@@ -528,4 +608,4 @@
 </script>
 
 </body>
-</html>
+      </html>
