@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>FIZIO – Masaż i Fizjoterapia</title>
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -22,16 +24,24 @@
       color: #17324d;
     }
 
+    /* =========================
+       MENU
+       ========================= */
+
     header {
       background: white;
       padding: 18px 25px;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 2px 12px rgba(0, 70, 140, 0.12);
+
+      box-shadow:
+        0 2px 12px rgba(0, 70, 140, 0.12);
     }
 
     .logo {
@@ -45,17 +55,24 @@
       color: #17324d;
       margin-left: 22px;
       font-weight: bold;
+      transition: 0.2s;
     }
 
     nav a:hover {
       color: #087dcc;
     }
 
+    /* =========================
+       HERO
+       ========================= */
+
     .hero {
       min-height: 88vh;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       padding: 50px 20px;
 
       background:
@@ -71,11 +88,17 @@
 
     .hero-content {
       background: rgba(255, 255, 255, 0.94);
+
       padding: 50px 35px;
+
       border-radius: 25px;
+
       text-align: center;
+
       max-width: 650px;
-      box-shadow: 0 15px 45px rgba(0, 50, 100, 0.25);
+
+      box-shadow:
+        0 15px 45px rgba(0, 50, 100, 0.25);
     }
 
     .hero h1 {
@@ -93,19 +116,32 @@
       font-size: 18px;
       margin-bottom: 30px;
       color: #48657e;
+      line-height: 1.6;
     }
+
+    /* =========================
+       BUTTON
+       ========================= */
 
     .main-button {
       display: inline-block;
+
       background: #087dcc;
       color: white;
+
       padding: 16px 35px;
+
       border-radius: 10px;
+
       text-decoration: none;
+
       font-size: 18px;
       font-weight: bold;
+
       border: none;
+
       cursor: pointer;
+
       transition: 0.2s;
     }
 
@@ -115,10 +151,14 @@
     }
 
     .main-button:disabled {
-      background: #8aa9bd;
+      background: #8caabd;
       cursor: not-allowed;
       transform: none;
     }
+
+    /* =========================
+       SEKCJE
+       ========================= */
 
     section {
       max-width: 1100px;
@@ -128,56 +168,89 @@
 
     .section-title {
       text-align: center;
+
       font-size: 34px;
+
       color: #087dcc;
+
       margin-bottom: 40px;
     }
 
+    /* =========================
+       USŁUGI
+       ========================= */
+
     .services {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
       gap: 22px;
     }
 
     .service {
       background: white;
+
       padding: 20px;
+
       border-radius: 18px;
+
       text-align: center;
-      box-shadow: 0 6px 20px rgba(0, 90, 160, 0.1);
+
+      box-shadow:
+        0 6px 20px rgba(0, 90, 160, 0.1);
+
       border-top: 5px solid #1598df;
+
       transition: 0.2s;
     }
 
     .service:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 90, 160, 0.16);
+
+      box-shadow:
+        0 10px 25px rgba(0, 90, 160, 0.16);
     }
 
     .service-image {
       width: 100%;
       height: 180px;
+
       object-fit: cover;
+
       border-radius: 12px;
+
       margin-bottom: 18px;
     }
 
     .service h3 {
       font-size: 21px;
+
       margin-bottom: 12px;
+
       color: #17324d;
     }
 
     .service p {
       color: #60788e;
+
       margin-bottom: 15px;
+
+      line-height: 1.5;
     }
 
     .price {
       font-size: 24px;
+
       font-weight: bold;
+
       color: #087dcc;
     }
+
+    /* =========================
+       REZERWACJA
+       ========================= */
 
     .booking-box {
       max-width: 680px;
@@ -186,34 +259,52 @@
 
     form {
       background: white;
+
       padding: 35px;
+
       border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0, 80, 150, 0.12);
+
+      box-shadow:
+        0 8px 25px rgba(0, 80, 150, 0.12);
     }
 
     label {
       display: block;
+
       font-weight: bold;
+
       margin-top: 17px;
+
       margin-bottom: 7px;
     }
 
     input,
     select {
       width: 100%;
+
       padding: 13px;
-      border: 1px solid #c8d9e8;
+
+      border:
+        1px solid #c8d9e8;
+
       border-radius: 9px;
+
       font-size: 16px;
+
       background: #fafdff;
+
       color: #17324d;
     }
 
     input:focus,
     select:focus {
       outline: none;
+
       border-color: #087dcc;
-      box-shadow: 0 0 0 3px rgba(8, 125, 204, 0.1);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(8, 125, 204, 0.1);
     }
 
     select option:disabled {
@@ -226,66 +317,189 @@
       margin-top: 28px;
     }
 
+    /* =========================
+       STATUS
+       ========================= */
+
+    #statusMessage {
+      display: none;
+
+      margin-top: 18px;
+
+      padding: 15px;
+
+      border-radius: 10px;
+
+      text-align: center;
+
+      font-weight: bold;
+    }
+
+    #statusMessage.success {
+      display: block;
+
+      background: #e8f8ee;
+
+      color: #16733c;
+
+      border:
+        1px solid #8ed0a5;
+    }
+
+    #statusMessage.error {
+      display: block;
+
+      background: #fff0f0;
+
+      color: #a52828;
+
+      border:
+        1px solid #e0a0a0;
+    }
+
+    /* =========================
+       POTWIERDZENIE
+       ========================= */
+
     #confirmation {
       display: none;
+
       background: white;
-      border: 2px solid #1598df;
+
+      border:
+        2px solid #1598df;
+
       padding: 35px;
+
       border-radius: 20px;
+
       text-align: center;
-      box-shadow: 0 8px 25px rgba(0, 80, 150, 0.12);
+
+      box-shadow:
+        0 8px 25px rgba(0, 80, 150, 0.12);
+
+      animation:
+        confirmationAppear 0.4s ease;
+    }
+
+    @keyframes confirmationAppear {
+
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
     }
 
     #confirmation h3 {
       color: #087dcc;
+
       font-size: 28px;
+
       margin-bottom: 18px;
     }
 
     #confirmation p {
       font-size: 17px;
+
       margin: 10px 0;
+
+      line-height: 1.5;
     }
 
     #bookingDetails {
       background: #f1f8ff;
+
       padding: 20px;
+
       border-radius: 12px;
+
       margin-top: 20px;
+
       text-align: left;
+
       line-height: 1.9;
     }
 
+    .confirmation-email {
+      display: inline-block;
+
+      margin-top: 20px;
+
+      padding: 13px 20px;
+
+      background: #087dcc;
+
+      color: white;
+
+      border-radius: 9px;
+
+      text-decoration: none;
+
+      font-weight: bold;
+    }
+
+    .confirmation-email:hover {
+      background: #0566a8;
+    }
+
+    /* =========================
+       KONTAKT
+       ========================= */
+
     .contact {
       background: #eaf6ff;
+
       text-align: center;
+
       max-width: none;
     }
 
     .contact-content {
       max-width: 700px;
+
       margin: auto;
     }
 
     .contact-item {
       background: white;
+
       margin: 12px 0;
+
       padding: 18px;
+
       border-radius: 12px;
+
       font-size: 18px;
-      box-shadow: 0 3px 12px rgba(0, 80, 150, 0.08);
+
+      box-shadow:
+        0 3px 12px rgba(0, 80, 150, 0.08);
     }
 
     .contact-item a {
       color: #087dcc;
+
       text-decoration: none;
+
       font-weight: bold;
     }
 
+    /* =========================
+       STOPKA
+       ========================= */
+
     footer {
       background: #075b91;
+
       color: white;
+
       text-align: center;
+
       padding: 30px 20px;
     }
 
@@ -293,7 +507,12 @@
       margin: 7px 0;
     }
 
+    /* =========================
+       TELEFON
+       ========================= */
+
     @media (max-width: 700px) {
+
       header {
         flex-direction: column;
         gap: 12px;
@@ -305,7 +524,9 @@
 
       nav a {
         display: inline-block;
+
         margin: 5px 7px;
+
         font-size: 14px;
       }
 
@@ -332,825 +553,1280 @@
       .service-image {
         height: 200px;
       }
+
+      #confirmation {
+        padding: 25px 18px;
+      }
+
     }
+
   </style>
 </head>
 
+
 <body>
 
-<header>
-  <div class="logo">
-    FIZIO
-  </div>
 
-  <nav>
-    <a href="#start">Start</a>
-    <a href="#uslugi">Usługi</a>
-    <a href="#rezerwacja">Umów wizytę</a>
-    <a href="#kontakt">Kontakt</a>
-  </nav>
-</header>
+  <!-- =========================
+       MENU
+       ========================= -->
 
+  <header>
 
-<div class="hero" id="start">
-
-  <div class="hero-content">
-
-    <h1>FIZIO</h1>
-
-    <h2>
-      Masaż i Fizjoterapia
-    </h2>
-
-    <p>
-      Zadbaj o swoje ciało i dobre samopoczucie.
-      Umów swoją wizytę szybko i wygodnie.
-    </p>
-
-    <a
-      href="#rezerwacja"
-      class="main-button"
-    >
-      Umów wizytę
-    </a>
-
-  </div>
-
-</div>
-
-
-<section id="uslugi">
-
-  <h2 class="section-title">
-    Nasze usługi
-  </h2>
-
-  <div class="services">
-
-    <div class="service">
-
-      <img
-        class="service-image"
-        src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80"
-        alt="Masaż relaksacyjny"
-      >
-
-      <h3>
-        Masaż relaksacyjny
-      </h3>
-
-      <p>
-        Relaks i odprężenie.
-      </p>
-
-      <div class="price">
-        5 zł / 20 min
-      </div>
-
+    <div class="logo">
+      FIZIO
     </div>
 
+    <nav>
 
-    <div class="service">
+      <a href="#start">
+        Start
+      </a>
 
-      <img
-        class="service-image"
-        src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80"
-        alt="Masaż pobudzający"
-      >
+      <a href="#uslugi">
+        Usługi
+      </a>
 
-      <h3>
-        Masaż pobudzający
-      </h3>
+      <a href="#rezerwacja">
+        Umów wizytę
+      </a>
 
-      <p>
-        Pobudzenie i rozluźnienie mięśni.
-      </p>
+      <a href="#kontakt">
+        Kontakt
+      </a>
 
-      <div class="price">
-        5 zł / 20 min
-      </div>
+    </nav>
 
-    </div>
-
-
-    <div class="service">
-
-      <img
-        class="service-image"
-        src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
-        alt="Fizjoterapia"
-      >
-
-      <h3>
-        Fizjoterapia
-      </h3>
-
-      <p>
-        Indywidualna praca z pacjentem.
-      </p>
-
-      <div class="price">
-        6 zł / 20 min
-      </div>
-
-    </div>
+  </header>
 
 
-    <div class="service">
+  <!-- =========================
+       START
+       ========================= -->
 
-      <img
-        class="service-image"
-        src="https://images.unsplash.com/photo-1556760544-74068565f05c?auto=format&fit=crop&w=800&q=80"
-        alt="Pakiet Premium"
-      >
+  <div
+    class="hero"
+    id="start"
+  >
 
-      <h3>
-        Pakiet Premium
-      </h3>
+    <div class="hero-content">
+
+      <h1>
+        FIZIO
+      </h1>
+
+      <h2>
+        Masaż i Fizjoterapia
+      </h2>
 
       <p>
-        Rozszerzona godzinna wizyta.
+        Zadbaj o swoje ciało i dobre samopoczucie.
+        Umów swoją wizytę szybko i wygodnie.
       </p>
 
-      <div class="price">
-        100 zł / 60 min
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section id="rezerwacja">
-
-  <h2 class="section-title">
-    Umów wizytę
-  </h2>
-
-  <div class="booking-box">
-
-    <form id="bookingForm">
-
-      <label for="service">
-        Wybierz usługę
-      </label>
-
-      <select id="service" required>
-
-        <option value="">
-          -- Wybierz usługę --
-        </option>
-
-        <option value="Masaż relaksacyjny – 5 zł / 20 min">
-          Masaż relaksacyjny – 5 zł / 20 min
-        </option>
-
-        <option value="Masaż pobudzający – 5 zł / 20 min">
-          Masaż pobudzający – 5 zł / 20 min
-        </option>
-
-        <option value="Fizjoterapia – 6 zł / 20 min">
-          Fizjoterapia – 6 zł / 20 min
-        </option>
-
-        <option value="Pakiet Premium – 100 zł / 60 min">
-          Pakiet Premium – 100 zł / 60 min
-        </option>
-
-      </select>
-
-
-      <label for="specialist">
-        Specjalista
-      </label>
-
-      <select id="specialist" required>
-
-        <option value="Kacper Olędzki">
-          Kacper Olędzki
-        </option>
-
-      </select>
-
-
-      <label for="date">
-        Wybierz dzień
-      </label>
-
-      <input
-        type="date"
-        id="date"
-        required
-      >
-
-
-      <label for="time">
-        Wybierz godzinę
-      </label>
-
-      <select
-        id="time"
-        required
-      >
-
-        <option value="">
-          -- Wybierz godzinę --
-        </option>
-
-        <option value="15:00">15:00</option>
-        <option value="15:20">15:20</option>
-        <option value="15:40">15:40</option>
-
-        <option value="16:00">16:00</option>
-        <option value="16:20">16:20</option>
-        <option value="16:40">16:40</option>
-
-        <option value="17:00">17:00</option>
-        <option value="17:20">17:20</option>
-        <option value="17:40">17:40</option>
-
-        <option value="18:00">18:00</option>
-        <option value="18:20">18:20</option>
-        <option value="18:40">18:40</option>
-
-        <option value="19:00">19:00</option>
-        <option value="19:20">19:20</option>
-        <option value="19:40">19:40</option>
-
-        <option value="20:00">20:00</option>
-        <option value="20:20">20:20</option>
-        <option value="20:40">20:40</option>
-
-        <option value="21:00">21:00</option>
-
-      </select>
-
-
-      <label for="name">
-        Imię i nazwisko
-      </label>
-
-      <input
-        type="text"
-        id="name"
-        placeholder="Wpisz imię i nazwisko"
-        required
-      >
-
-
-      <label for="phone">
-        Numer telefonu
-      </label>
-
-      <input
-        type="tel"
-        id="phone"
-        placeholder="np. 791 671 346"
-        required
-      >
-
-
-      <label for="email">
-        E-mail
-      </label>
-
-      <input
-        type="email"
-        id="email"
-        placeholder="twoj@email.pl"
-        required
-      >
-
-
-      <button
-        type="submit"
+      <a
+        href="#rezerwacja"
         class="main-button"
       >
-        Zarezerwuj wizytę
-      </button>
-
-    </form>
-
-
-    <div id="confirmation">
-
-      <h3>
-        Dziękujemy za zaufanie!
-      </h3>
-
-      <p>
-        Dziękujemy za umówienie wizyty.
-      </p>
-
-      <p>
-        <strong>
-          Prosimy o wysłanie potwierdzenia do wybranego specjalisty.
-        </strong>
-      </p>
-
-      <p>
-        Prosimy również o oczekiwanie na potwierdzenie wizyty przez specjalistę.
-      </p>
-
-      <div id="bookingDetails"></div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section
-  id="kontakt"
-  class="contact"
->
-
-  <div class="contact-content">
-
-    <h2 class="section-title">
-      Kontakt
-    </h2>
-
-    <div class="contact-item">
-      📞
-      <strong>
-        791 671 346
-      </strong>
-    </div>
-
-    <div class="contact-item">
-
-      ✉️
-
-      <a href="mailto:kacperson.0613@gmail.com">
-        kacperson.0613@gmail.com
+        Umów wizytę
       </a>
 
     </div>
 
-    <div class="contact-item">
+  </div>
 
-      📍
 
-      <strong>
-        Adamów 8
-      </strong>
+  <!-- =========================
+       USŁUGI
+       ========================= -->
+
+  <section id="uslugi">
+
+    <h2 class="section-title">
+      Nasze usługi
+    </h2>
+
+    <div class="services">
+
+
+      <div class="service">
+
+        <img
+          class="service-image"
+          src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80"
+          alt="Masaż relaksacyjny"
+          loading="lazy"
+        >
+
+        <h3>
+          Masaż relaksacyjny
+        </h3>
+
+        <p>
+          Relaks i odprężenie.
+        </p>
+
+        <div class="price">
+          5 zł / 20 min
+        </div>
+
+      </div>
+
+
+      <div class="service">
+
+        <img
+          class="service-image"
+          src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80"
+          alt="Masaż pobudzający"
+          loading="lazy"
+        >
+
+        <h3>
+          Masaż pobudzający
+        </h3>
+
+        <p>
+          Pobudzenie i rozluźnienie mięśni.
+        </p>
+
+        <div class="price">
+          5 zł / 20 min
+        </div>
+
+      </div>
+
+
+      <div class="service">
+
+        <img
+          class="service-image"
+          src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
+          alt="Fizjoterapia"
+          loading="lazy"
+        >
+
+        <h3>
+          Fizjoterapia
+        </h3>
+
+        <p>
+          Indywidualna praca z pacjentem.
+        </p>
+
+        <div class="price">
+          6 zł / 20 min
+        </div>
+
+      </div>
+
+
+      <div class="service">
+
+        <img
+          class="service-image"
+          src="https://images.unsplash.com/photo-1556760544-74068565f05c?auto=format&fit=crop&w=800&q=80"
+          alt="Pakiet Premium"
+          loading="lazy"
+        >
+
+        <h3>
+          Pakiet Premium
+        </h3>
+
+        <p>
+          Rozszerzona godzinna wizyta.
+        </p>
+
+        <div class="price">
+          100 zł / 60 min
+        </div>
+
+      </div>
+
 
     </div>
 
-  </div>
-
-</section>
+  </section>
 
 
-<footer>
+  <!-- =========================
+       REZERWACJA
+       ========================= -->
 
-  <p>
-    FIZIO – Masaż i Fizjoterapia
-  </p>
+  <section id="rezerwacja">
 
-  <p>
-    📞 791 671 346
-  </p>
-
-  <p>
-    ✉️ kacperson.0613@gmail.com
-  </p>
-
-  <p>
-    📍 Adamów 8
-  </p>
-
-  <p style="margin-top:20px;">
-    © 2026 FIZIO
-  </p>
-
-</footer>
+    <h2 class="section-title">
+      Umów wizytę
+    </h2>
 
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-<script>
-
-  /* =====================================
-     SUPABASE
-     ===================================== */
-
-  const SUPABASE_URL =
-    "WSTAW_TUTAJ_SUPABASE_URL";
-
-  const SUPABASE_PUBLISHABLE_KEY =
-    "WSTAW_TUTAJ_SUPABASE_PUBLISHABLE_KEY";
+    <div class="booking-box">
 
 
-  const supabaseClient =
-    window.supabase.createClient(
-      SUPABASE_URL,
-      SUPABASE_PUBLISHABLE_KEY
-    );
+      <form id="bookingForm">
 
 
-  /* =====================================
-     ELEMENTY
-     ===================================== */
+        <label for="service">
+          Wybierz usługę
+        </label>
 
-  const dateInput =
-    document.getElementById("date");
+        <select
+          id="service"
+          required
+        >
 
-  const timeSelect =
-    document.getElementById("time");
+          <option value="">
+            -- Wybierz usługę --
+          </option>
 
-  const specialistSelect =
-    document.getElementById("specialist");
+          <option value="Masaż relaksacyjny – 5 zł / 20 min">
+            Masaż relaksacyjny – 5 zł / 20 min
+          </option>
 
-  const form =
-    document.getElementById("bookingForm");
+          <option value="Masaż pobudzający – 5 zł / 20 min">
+            Masaż pobudzający – 5 zł / 20 min
+          </option>
 
-  const confirmation =
-    document.getElementById("confirmation");
+          <option value="Fizjoterapia – 6 zł / 20 min">
+            Fizjoterapia – 6 zł / 20 min
+          </option>
 
-  const bookingDetails =
-    document.getElementById("bookingDetails");
+          <option value="Pakiet Premium – 100 zł / 60 min">
+            Pakiet Premium – 100 zł / 60 min
+          </option>
 
-
-  /* =====================================
-     MINIMALNA DATA
-     ===================================== */
-
-  const today =
-    new Date();
-
-  const year =
-    today.getFullYear();
-
-  const month =
-    String(
-      today.getMonth() + 1
-    ).padStart(2, "0");
-
-  const day =
-    String(
-      today.getDate()
-    ).padStart(2, "0");
-
-  dateInput.min =
-    `${year}-${month}-${day}`;
+        </select>
 
 
-  /* =====================================
-     POBIERANIE ZAJĘTYCH GODZIN
-     ===================================== */
+        <label for="specialist">
+          Specjalista
+        </label>
 
-  async function loadBookedTimes() {
+        <select
+          id="specialist"
+          required
+        >
 
-    const date =
-      dateInput.value;
+          <option value="Kacper Olędzki">
+            Kacper Olędzki
+          </option>
 
-    const specialist =
-      specialistSelect.value;
+        </select>
 
 
-    if (!date) {
-      return;
+        <label for="date">
+          Wybierz dzień
+        </label>
+
+        <input
+          type="date"
+          id="date"
+          required
+        >
+
+
+        <label for="time">
+          Wybierz godzinę
+        </label>
+
+        <select
+          id="time"
+          required
+        >
+
+          <option value="">
+            -- Wybierz godzinę --
+          </option>
+
+          <option value="15:00">
+            15:00
+          </option>
+
+          <option value="15:20">
+            15:20
+          </option>
+
+          <option value="15:40">
+            15:40
+          </option>
+
+          <option value="16:00">
+            16:00
+          </option>
+
+          <option value="16:20">
+            16:20
+          </option>
+
+          <option value="16:40">
+            16:40
+          </option>
+
+          <option value="17:00">
+            17:00
+          </option>
+
+          <option value="17:20">
+            17:20
+          </option>
+
+          <option value="17:40">
+            17:40
+          </option>
+
+          <option value="18:00">
+            18:00
+          </option>
+
+          <option value="18:20">
+            18:20
+          </option>
+
+          <option value="18:40">
+            18:40
+          </option>
+
+          <option value="19:00">
+            19:00
+          </option>
+
+          <option value="19:20">
+            19:20
+          </option>
+
+          <option value="19:40">
+            19:40
+          </option>
+
+          <option value="20:00">
+            20:00
+          </option>
+
+          <option value="20:20">
+            20:20
+          </option>
+
+          <option value="20:40">
+            20:40
+          </option>
+
+          <option value="21:00">
+            21:00
+          </option>
+
+        </select>
+
+
+        <label for="name">
+          Imię i nazwisko
+        </label>
+
+        <input
+          type="text"
+          id="name"
+          placeholder="Wpisz imię i nazwisko"
+          autocomplete="name"
+          required
+        >
+
+
+        <label for="phone">
+          Numer telefonu
+        </label>
+
+        <input
+          type="tel"
+          id="phone"
+          placeholder="np. 791 671 346"
+          autocomplete="tel"
+          required
+        >
+
+
+        <label for="email">
+          E-mail
+        </label>
+
+        <input
+          type="email"
+          id="email"
+          placeholder="twoj@email.pl"
+          autocomplete="email"
+          required
+        >
+
+
+        <button
+          type="submit"
+          class="main-button"
+          id="submitButton"
+        >
+          Zarezerwuj wizytę
+        </button>
+
+
+        <div
+          id="statusMessage"
+        ></div>
+
+
+      </form>
+
+
+      <!-- =========================
+           PODZIĘKOWANIE
+           ========================= -->
+
+      <div
+        id="confirmation"
+      >
+
+        <h3>
+          Dziękujemy za zaufanie!
+        </h3>
+
+        <p>
+          Twoja rezerwacja została przyjęta.
+        </p>
+
+        <p>
+          <strong>
+            Prosimy o wysłanie potwierdzenia
+            do wybranego specjalisty.
+          </strong>
+        </p>
+
+        <p>
+          Prosimy również o oczekiwanie
+          na potwierdzenie wizyty przez specjalistę.
+        </p>
+
+
+        <div
+          id="bookingDetails"
+        ></div>
+
+
+        <a
+          class="confirmation-email"
+          href="mailto:kacperson.0613@gmail.com"
+        >
+          Wyślij potwierdzenie e-mailem
+        </a>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       KONTAKT
+       ========================= -->
+
+  <section
+    id="kontakt"
+    class="contact"
+  >
+
+    <div class="contact-content">
+
+      <h2 class="section-title">
+        Kontakt
+      </h2>
+
+
+      <div class="contact-item">
+        📞
+        <strong>
+          791 671 346
+        </strong>
+      </div>
+
+
+      <div class="contact-item">
+
+        ✉️
+
+        <a
+          href="mailto:kacperson.0613@gmail.com"
+        >
+          kacperson.0613@gmail.com
+        </a>
+
+      </div>
+
+
+      <div class="contact-item">
+
+        📍
+
+        <strong>
+          Adamów 8
+        </strong>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       STOPKA
+       ========================= -->
+
+  <footer>
+
+    <p>
+      FIZIO – Masaż i Fizjoterapia
+    </p>
+
+    <p>
+      📞 791 671 346
+    </p>
+
+    <p>
+      ✉️ kacperson.0613@gmail.com
+    </p>
+
+    <p>
+      📍 Adamów 8
+    </p>
+
+    <p style="margin-top:20px;">
+      © 2026 FIZIO
+    </p>
+
+  </footer>
+
+
+  <!-- =========================
+       SUPABASE
+       ========================= -->
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+  <script>
+
+    /* ==================================================
+       1. DANE SUPABASE
+       ================================================== */
+
+    const SUPABASE_URL =
+      "WSTAW_TUTAJ_SUPABASE_URL";
+
+    const SUPABASE_PUBLISHABLE_KEY =
+      "WSTAW_TUTAJ_SUPABASE_PUBLISHABLE_KEY";
+
+
+    /* ==================================================
+       2. UTWORZENIE POŁĄCZENIA
+       ================================================== */
+
+    const supabaseClient =
+      window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+      );
+
+
+    /* ==================================================
+       3. ELEMENTY
+       ================================================== */
+
+    const form =
+      document.getElementById(
+        "bookingForm"
+      );
+
+    const confirmation =
+      document.getElementById(
+        "confirmation"
+      );
+
+    const bookingDetails =
+      document.getElementById(
+        "bookingDetails"
+      );
+
+    const dateInput =
+      document.getElementById(
+        "date"
+      );
+
+    const timeSelect =
+      document.getElementById(
+        "time"
+      );
+
+    const specialistSelect =
+      document.getElementById(
+        "specialist"
+      );
+
+    const submitButton =
+      document.getElementById(
+        "submitButton"
+      );
+
+    const statusMessage =
+      document.getElementById(
+        "statusMessage"
+      );
+
+
+    /* ==================================================
+       4. MINIMALNA DATA = DZISIAJ
+       ================================================== */
+
+    function getTodayString() {
+
+      const now =
+        new Date();
+
+      const year =
+        now.getFullYear();
+
+      const month =
+        String(
+          now.getMonth() + 1
+        ).padStart(2, "0");
+
+      const day =
+        String(
+          now.getDate()
+        ).padStart(2, "0");
+
+      return (
+        year +
+        "-" +
+        month +
+        "-" +
+        day
+      );
+
     }
 
 
-    const result =
-      await supabaseClient
-        .from("reservations")
-        .select("time")
-        .eq("date", date)
-        .eq("specialist", specialist);
+    dateInput.min =
+      getTodayString();
 
 
-    if (result.error) {
+    /* ==================================================
+       5. KOMUNIKAT
+       ================================================== */
 
-      console.error(
-        result.error
-      );
+    function showStatus(
+      message,
+      type
+    ) {
 
-      return;
+      statusMessage.textContent =
+        message;
+
+      statusMessage.className =
+        type;
+
+      statusMessage.style.display =
+        "block";
+
     }
 
 
-    const bookedTimes =
-      new Set(
-        (result.data || []).map(
-          row =>
-            String(row.time).substring(0, 5)
-        )
-      );
+    function hideStatus() {
+
+      statusMessage.textContent =
+        "";
+
+      statusMessage.className =
+        "";
+
+      statusMessage.style.display =
+        "none";
+
+    }
 
 
-    Array.from(
-      timeSelect.options
-    ).forEach(
-      function(option) {
+    /* ==================================================
+       6. ODCZYT ZAJĘTYCH GODZIN
+       ================================================== */
 
-        if (!option.value) {
-          return;
+    async function loadBookedTimes() {
+
+      const selectedDate =
+        dateInput.value;
+
+      const specialist =
+        specialistSelect.value;
+
+
+      if (!selectedDate) {
+
+        resetTimeOptions();
+
+        return;
+
+      }
+
+
+      const {
+        data,
+        error
+      } =
+        await supabaseClient
+          .from("reservations")
+          .select("time")
+          .eq(
+            "date",
+            selectedDate
+          )
+          .eq(
+            "specialist",
+            specialist
+          );
+
+
+      if (error) {
+
+        console.error(
+          "Błąd pobierania rezerwacji:",
+          error
+        );
+
+        return;
+
+      }
+
+
+      const bookedTimes =
+        new Set(
+          (data || []).map(
+            function(row) {
+
+              return String(
+                row.time
+              ).substring(0, 5);
+
+            }
+          )
+        );
+
+
+      Array.from(
+        timeSelect.options
+      ).forEach(
+        function(option) {
+
+          if (!option.value) {
+            return;
+          }
+
+
+          const time =
+            option.value;
+
+
+          if (
+            bookedTimes.has(time)
+          ) {
+
+            option.disabled =
+              true;
+
+            option.textContent =
+              time +
+              " – ZAREZERWOWANA";
+
+          } else {
+
+            option.disabled =
+              false;
+
+            option.textContent =
+              time;
+
+          }
+
         }
+      );
 
 
-        const time =
-          option.value;
+      if (
+        bookedTimes.has(
+          timeSelect.value
+        )
+      ) {
+
+        timeSelect.value =
+          "";
+
+      }
+
+    }
 
 
-        if (
-          bookedTimes.has(time)
-        ) {
+    /* ==================================================
+       7. RESET GODZIN
+       ================================================== */
 
-          option.disabled =
-            true;
+    function resetTimeOptions() {
 
-          option.textContent =
-            time + " – ZAREZERWOWANA";
+      Array.from(
+        timeSelect.options
+      ).forEach(
+        function(option) {
 
-        } else {
+          if (!option.value) {
+            return;
+          }
 
           option.disabled =
             false;
 
           option.textContent =
-            time;
+            option.value;
 
         }
+      );
 
-      }
-    );
-
-
-    if (
-      bookedTimes.has(
-        timeSelect.value
-      )
-    ) {
 
       timeSelect.value =
         "";
 
     }
 
-  }
 
+    /* ==================================================
+       8. ZMIANA DATY
+       ================================================== */
 
-  /* =====================================
-     ZMIANA DNIA
-     ===================================== */
+    dateInput.addEventListener(
+      "change",
+      async function() {
 
-  dateInput.addEventListener(
-    "change",
-    loadBookedTimes
-  );
+        hideStatus();
 
+        resetTimeOptions();
 
-  specialistSelect.addEventListener(
-    "change",
-    loadBookedTimes
-  );
+        await loadBookedTimes();
 
-
-  /* =====================================
-     REZERWACJA
-     ===================================== */
-
-  form.addEventListener(
-    "submit",
-    async function(event) {
-
-      event.preventDefault();
-
-
-      const service =
-        document.getElementById(
-          "service"
-        ).value;
-
-      const specialist =
-        specialistSelect.value;
-
-      const date =
-        dateInput.value;
-
-      const time =
-        timeSelect.value;
-
-      const name =
-        document.getElementById(
-          "name"
-        ).value.trim();
-
-      const phone =
-        document.getElementById(
-          "phone"
-        ).value.trim();
-
-      const email =
-        document.getElementById(
-          "email"
-        ).value.trim();
-
-
-      if (
-        !date ||
-        !time
-      ) {
-
-        alert(
-          "Wybierz dzień i godzinę."
-        );
-
-        return;
       }
+    );
 
 
-      const button =
-        form.querySelector(
-          "button[type='submit']"
-        );
+    /* ==================================================
+       9. ZMIANA SPECJALISTY
+       ================================================== */
+
+    specialistSelect.addEventListener(
+      "change",
+      async function() {
+
+        hideStatus();
+
+        resetTimeOptions();
+
+        await loadBookedTimes();
+
+      }
+    );
 
 
-      button.disabled =
-        true;
+    /* ==================================================
+       10. REZERWACJA
+       ================================================== */
 
-      button.textContent =
-        "Rezerwowanie...";
+    form.addEventListener(
+      "submit",
+      async function(event) {
 
-
-      /*
-        Zapis do wspólnej bazy.
-
-        Jeżeli ktoś inny zarezerwował
-        tę samą godzinę chwilę wcześniej,
-        baza zwróci błąd 23505.
-      */
-
-      const result =
-        await supabaseClient
-          .from("reservations")
-          .insert({
-
-            service:
-              service,
-
-            specialist:
-              specialist,
-
-            date:
-              date,
-
-            time:
-              time,
-
-            name:
-              name,
-
-            phone:
-              phone,
-
-            email:
-              email
-
-          });
+        event.preventDefault();
 
 
-      /* =================================
-         TERMIN JUŻ ZAJĘTY
-         ================================= */
+        hideStatus();
 
-      if (
-        result.error
-      ) {
 
-        console.error(
-          result.error
-        );
+        const service =
+          document.getElementById(
+            "service"
+          ).value.trim();
 
+        const specialist =
+          specialistSelect.value.trim();
+
+        const date =
+          dateInput.value;
+
+        const time =
+          timeSelect.value;
+
+        const name =
+          document.getElementById(
+            "name"
+          ).value.trim();
+
+        const phone =
+          document.getElementById(
+            "phone"
+          ).value.trim();
+
+        const email =
+          document.getElementById(
+            "email"
+          ).value.trim();
+
+
+        /* -------------------------
+           SPRAWDZENIE DANYCH
+           ------------------------- */
 
         if (
-          result.error.code === "23505"
+          !service ||
+          !specialist ||
+          !date ||
+          !time ||
+          !name ||
+          !phone ||
+          !email
         ) {
 
-          alert(
-            "Ta godzina została właśnie zarezerwowana przez inną osobę. Wybierz inną godzinę."
+          showStatus(
+            "Uzupełnij wszystkie pola.",
+            "error"
           );
 
-          await loadBookedTimes();
-
-        } else {
-
-          alert(
-            "Nie udało się zapisać rezerwacji. Spróbuj ponownie."
-          );
+          return;
 
         }
 
 
-        button.disabled =
-          false;
+        /* -------------------------
+           BLOKADA PRZYCISKU
+           ------------------------- */
 
-        button.textContent =
-          "Zarezerwuj wizytę";
+        submitButton.disabled =
+          true;
 
-        return;
+        submitButton.textContent =
+          "Rezerwowanie...";
+
+
+        try {
+
+
+          /* ============================================
+             11. DODATKOWE SPRAWDZENIE PRZED ZAPISEM
+             ============================================ */
+
+          const {
+            data: existingReservation,
+            error: checkError
+          } =
+            await supabaseClient
+              .from("reservations")
+              .select("id")
+              .eq(
+                "date",
+                date
+              )
+              .eq(
+                "time",
+                time
+              )
+              .eq(
+                "specialist",
+                specialist
+              )
+              .maybeSingle();
+
+
+          if (checkError) {
+
+            throw checkError;
+
+          }
+
+
+          if (
+            existingReservation
+          ) {
+
+            showStatus(
+              "Ta godzina jest już zarezerwowana. Wybierz inną.",
+              "error"
+            );
+
+            await loadBookedTimes();
+
+            return;
+
+          }
+
+
+          /* ============================================
+             12. ZAPIS REZERWACJI
+             ============================================ */
+
+          const {
+            error
+          } =
+            await supabaseClient
+              .from("reservations")
+              .insert({
+
+                service:
+                  service,
+
+                specialist:
+                  specialist,
+
+                date:
+                  date,
+
+                time:
+                  time,
+
+                name:
+                  name,
+
+                phone:
+                  phone,
+
+                email:
+                  email
+
+              });
+
+
+          /* ============================================
+             13. BŁĄD
+             ============================================ */
+
+          if (error) {
+
+            console.error(
+              "Błąd zapisu:",
+              error
+            );
+
+
+            /*
+              23505 =
+              naruszenie UNIQUE.
+            */
+
+            if (
+              error.code === "23505"
+            ) {
+
+              showStatus(
+                "Ta godzina została właśnie zarezerwowana przez inną osobę. Wybierz inną godzinę.",
+                "error"
+              );
+
+              await loadBookedTimes();
+
+              return;
+
+            }
+
+
+            throw error;
+
+          }
+
+
+          /* ============================================
+             14. SUKCES
+             ============================================ */
+
+          bookingDetails.innerHTML = `
+
+            <strong>Usługa:</strong>
+            ${escapeHtml(service)}
+
+            <br>
+
+            <strong>Specjalista:</strong>
+            ${escapeHtml(specialist)}
+
+            <br>
+
+            <strong>Data:</strong>
+            ${escapeHtml(date)}
+
+            <br>
+
+            <strong>Godzina:</strong>
+            ${escapeHtml(time)}
+
+            <br>
+
+            <strong>Imię i nazwisko:</strong>
+            ${escapeHtml(name)}
+
+            <br>
+
+            <strong>Telefon:</strong>
+            ${escapeHtml(phone)}
+
+            <br>
+
+            <strong>E-mail:</strong>
+            ${escapeHtml(email)}
+
+          `;
+
+
+          /* ============================================
+             15. UKRYCIE FORMULARZA
+             ============================================ */
+
+          form.style.display =
+            "none";
+
+
+          /* ============================================
+             16. POKAZANIE PODZIĘKOWANIA
+             ============================================ */
+
+          confirmation.style.display =
+            "block";
+
+
+          /* ============================================
+             17. PRZEJŚCIE DO PODZIĘKOWANIA
+             ============================================ */
+
+          setTimeout(
+            function() {
+
+              confirmation.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+              });
+
+            },
+            100
+          );
+
+
+        } catch (error) {
+
+
+          /* ============================================
+             18. OBSŁUGA BŁĘDU
+             ============================================ */
+
+          console.error(
+            "Błąd rezerwacji:",
+            error
+          );
+
+
+          showStatus(
+            "Nie udało się zapisać rezerwacji. Sprawdź połączenie z bazą Supabase.",
+            "error"
+          );
+
+
+        } finally {
+
+
+          /* ============================================
+             19. ODBLOKOWANIE PRZYCISKU
+             ============================================ */
+
+          submitButton.disabled =
+            false;
+
+          submitButton.textContent =
+            "Zarezerwuj wizytę";
+
+        }
+
       }
+    );
 
 
-      /* =================================
-         SUKCES
-         ================================= */
+    /* ==================================================
+       20. ZABEZPIECZENIE HTML
+       ================================================== */
 
-      bookingDetails.innerHTML =
+    function escapeHtml(
+      value
+    ) {
 
-        "<strong>Usługa:</strong> " +
-        escapeHtml(service) +
+      return String(value)
 
-        "<br>" +
+        .replaceAll(
+          "&",
+          "&amp;"
+        )
 
-        "<strong>Specjalista:</strong> " +
-        escapeHtml(specialist) +
+        .replaceAll(
+          "<",
+          "&lt;"
+        )
 
-        "<br>" +
+        .replaceAll(
+          ">",
+          "&gt;"
+        )
 
-        "<strong>Data:</strong> " +
-        escapeHtml(date) +
+        .replaceAll(
+          '"',
+          "&quot;"
+        )
 
-        "<br>" +
-
-        "<strong>Godzina:</strong> " +
-        escapeHtml(time) +
-
-        "<br>" +
-
-        "<strong>Klient:</strong> " +
-        escapeHtml(name) +
-
-        "<br>" +
-
-        "<strong>Telefon:</strong> " +
-        escapeHtml(phone) +
-
-        "<br>" +
-
-        "<strong>E-mail:</strong> " +
-        escapeHtml(email);
-
-
-      form.style.display =
-        "none";
-
-
-      confirmation.style.display =
-        "block";
-
-
-      confirmation.scrollIntoView({
-        behavior: "smooth"
-      });
+        .replaceAll(
+          "'",
+          "&#039;"
+        );
 
     }
-  );
 
 
-  /* =====================================
-     ZABEZPIECZENIE TEKSTU
-     ===================================== */
+    /* ==================================================
+       21. AUTOMATYCZNE ODŚWIEŻANIE
+       ================================================== */
 
-  function escapeHtml(value) {
+    setInterval(
+      async function() {
 
-    return value
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
+        if (
+          dateInput.value &&
+          confirmation.style.display !== "block"
+        ) {
 
-  }
+          await loadBookedTimes();
+
+        }
+
+      },
+      15000
+    );
 
 
-  /* =====================================
-     AUTOMATYCZNE ODŚWIEŻANIE
-     ===================================== */
+    /* ==================================================
+       22. PIERWSZE ZAŁADOWANIE
+       ================================================== */
 
-  setInterval(
-    function() {
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
 
-      if (
-        dateInput.value
-      ) {
-
-        loadBookedTimes();
+        resetTimeOptions();
 
       }
+    );
 
-    },
-    20000
-  );
-
-</script>
+  </script>
 
 </body>
 </html>
