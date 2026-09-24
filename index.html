@@ -4,53 +4,54 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>FIZIO | Masaż i Fizjoterapia</title>
-
+  <title>FIZIO — Masaż i Fizjoterapia</title>
   <meta
     name="description"
-    content="FIZIO – masaż i fizjoterapia. Umów wizytę szybko i wygodnie."
+    content="FIZIO — masaż i fizjoterapia. Umów wizytę i zadbaj o swoje ciało."
   >
 
   <style>
     :root {
-      --primary: #087dcc;
-      --primary-dark: #05629f;
-      --secondary: #12a8e0;
-      --dark: #102f46;
-      --text: #536b7d;
-      --light: #f4f9fc;
+      --primary: #1677ff;
+      --primary-dark: #075ac9;
+      --secondary: #0f172a;
+      --text: #334155;
+      --muted: #64748b;
+      --light: #f5f9ff;
       --white: #ffffff;
-      --border: #dceaf3;
-      --success: #18a66a;
-      --shadow: 0 15px 45px rgba(16, 73, 110, 0.10);
+      --border: #e2e8f0;
+      --success: #16a34a;
+      --shadow: 0 15px 45px rgba(15, 23, 42, 0.10);
       --radius: 22px;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-    }
-
-    html {
+      box-sizing: border-box;
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: Arial, sans-serif;
-      background: var(--light);
-      color: var(--dark);
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #fff;
       line-height: 1.6;
     }
 
     a {
       color: inherit;
+      text-decoration: none;
     }
 
-    button,
-    input,
-    select {
-      font: inherit;
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
     }
 
     /* =========================
@@ -61,81 +62,52 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-
-      background: rgba(255, 255, 255, 0.94);
-      backdrop-filter: blur(14px);
-
-      border-bottom: 1px solid rgba(8, 125, 204, 0.08);
-
-      box-shadow: 0 5px 25px rgba(16, 73, 110, 0.07);
+      background: rgba(255,255,255,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(226,232,240,.8);
     }
 
-    .header-inner {
-      max-width: 1200px;
-      margin: auto;
-      min-height: 78px;
-      padding: 0 24px;
-
+    .nav {
+      min-height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 30px;
+      gap: 25px;
     }
 
     .logo {
-      text-decoration: none;
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 900;
+      color: var(--secondary);
       letter-spacing: -1px;
-      color: var(--primary);
     }
 
     .logo span {
-      color: var(--dark);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    nav a {
-      position: relative;
-      text-decoration: none;
-      color: var(--dark);
-      font-weight: 700;
-      font-size: 15px;
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -7px;
-      width: 0;
-      height: 2px;
-      background: var(--primary);
-      transition: width 0.25s;
-    }
-
-    nav a:hover {
       color: var(--primary);
     }
 
-    nav a:hover::after {
-      width: 100%;
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+      font-weight: 700;
+      color: #475569;
+    }
+
+    .nav-links a {
+      transition: .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
     }
 
     .nav-button {
+      padding: 11px 18px;
       background: var(--primary);
       color: white !important;
-      padding: 11px 18px;
-      border-radius: 10px;
-    }
-
-    .nav-button::after {
-      display: none;
+      border-radius: 12px;
     }
 
     .nav-button:hover {
@@ -147,230 +119,126 @@
     ========================= */
 
     .hero {
-      min-height: 88vh;
-
+      min-height: 680px;
       display: flex;
       align-items: center;
-
-      padding: 70px 24px;
-
+      position: relative;
+      overflow: hidden;
       background:
         linear-gradient(
-          115deg,
-          rgba(5, 87, 143, 0.90),
-          rgba(8, 145, 205, 0.72)
+          90deg,
+          rgba(3, 18, 42, .88),
+          rgba(3, 18, 42, .62),
+          rgba(3, 18, 42, .25)
         ),
-        url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1800&q=85");
-
-      background-size: cover;
-      background-position: center;
+        url("https://images.unsplash.com/photo-1556760544-74068565f05c?auto=format&fit=crop&w=1800&q=85")
+        center/cover no-repeat;
     }
 
-    .hero-inner {
-      width: 100%;
-      max-width: 1200px;
-      margin: auto;
-
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      align-items: center;
-      gap: 70px;
-    }
-
-    .hero-text {
+    .hero-content {
       color: white;
+      max-width: 720px;
+      padding: 80px 0;
     }
 
-    .hero-badge {
+    .badge {
       display: inline-block;
-
-      padding: 8px 15px;
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.25);
+      padding: 8px 14px;
+      border-radius: 999px;
       margin-bottom: 22px;
-
-      border: 1px solid rgba(255,255,255,0.35);
-      background: rgba(255,255,255,0.13);
-
-      border-radius: 100px;
-
-      font-size: 14px;
       font-weight: 700;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(8px);
     }
 
     .hero h1 {
-      font-size: clamp(52px, 7vw, 86px);
-      line-height: 0.95;
-      margin-bottom: 22px;
-      letter-spacing: -4px;
+      font-size: clamp(44px, 7vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
     }
 
     .hero h1 span {
-      color: #bceeff;
-    }
-
-    .hero h2 {
-      font-size: clamp(24px, 3vw, 36px);
-      margin-bottom: 18px;
-      line-height: 1.2;
+      color: #62b1ff;
     }
 
     .hero p {
+      font-size: 20px;
       max-width: 650px;
-      font-size: 18px;
-      color: rgba(255,255,255,0.88);
-      margin-bottom: 32px;
+      color: #e2e8f0;
+      margin-bottom: 34px;
     }
 
     .hero-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 13px;
+      gap: 14px;
     }
 
-    .button {
+    .btn {
       display: inline-flex;
       justify-content: center;
       align-items: center;
-
-      min-height: 52px;
-      padding: 0 25px;
-
-      border-radius: 12px;
-
-      text-decoration: none;
-      border: none;
-
+      padding: 14px 22px;
+      border-radius: 13px;
       font-weight: 800;
+      border: none;
       cursor: pointer;
-
-      transition:
-        transform 0.2s,
-        background 0.2s,
-        box-shadow 0.2s;
+      transition: .2s;
+      font-size: 16px;
     }
 
-    .button:hover {
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
       transform: translateY(-2px);
     }
 
-    .button-primary {
+    .btn-light {
       background: white;
-      color: var(--primary);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      color: var(--secondary);
     }
 
-    .button-primary:hover {
-      background: #f2fbff;
-    }
-
-    .button-outline {
-      border: 1px solid rgba(255,255,255,0.5);
-      color: white;
-      background: rgba(255,255,255,0.08);
-    }
-
-    .button-outline:hover {
-      background: rgba(255,255,255,0.16);
-    }
-
-    /* HERO CARD */
-
-    .hero-card {
-      background: rgba(255,255,255,0.96);
-      border-radius: 28px;
-      padding: 32px;
-
-      box-shadow: 0 25px 60px rgba(0,40,70,0.22);
-
-      animation: floating 4s ease-in-out infinite;
-    }
-
-    .hero-card-icon {
-      width: 60px;
-      height: 60px;
-
-      display: grid;
-      place-items: center;
-
-      background: #e9f7ff;
-      border-radius: 18px;
-
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-
-    .hero-card h3 {
-      font-size: 25px;
-      margin-bottom: 10px;
-    }
-
-    .hero-card p {
-      color: var(--text);
-      margin-bottom: 22px;
-    }
-
-    .quick-info {
-      display: grid;
-      gap: 12px;
-    }
-
-    .quick-info div {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-
-      padding: 13px;
-      background: #f5faff;
-      border-radius: 12px;
-
-      color: var(--dark);
-      font-weight: 700;
-    }
-
-    @keyframes floating {
-      0%, 100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-8px);
-      }
+    .btn-light:hover {
+      transform: translateY(-2px);
     }
 
     /* =========================
-       GENERAL SECTIONS
+       SECTIONS
     ========================= */
 
     section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 90px 24px;
+      padding: 90px 0;
     }
 
-    .section-header {
-      max-width: 680px;
-      margin: 0 auto 45px;
+    .section-heading {
       text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
     }
 
-    .section-label {
+    .section-heading span {
       color: var(--primary);
       font-weight: 800;
-      font-size: 14px;
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      margin-bottom: 9px;
+      letter-spacing: 1px;
+      font-size: 14px;
     }
 
-    .section-title {
-      font-size: clamp(32px, 4vw, 46px);
-      line-height: 1.1;
-      margin-bottom: 14px;
-      letter-spacing: -1px;
+    .section-heading h2 {
+      color: var(--secondary);
+      font-size: clamp(32px, 5vw, 48px);
+      margin: 8px 0 12px;
+      letter-spacing: -1.5px;
     }
 
-    .section-description {
-      color: var(--text);
+    .section-heading p {
+      color: var(--muted);
       font-size: 17px;
     }
 
@@ -379,173 +247,132 @@
     ========================= */
 
     .services {
+      background: var(--light);
+    }
+
+    .service-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
 
-    .service {
-      position: relative;
-
+    .service-card {
       background: white;
       border: 1px solid var(--border);
-
-      padding: 30px 23px;
-
       border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 8px 30px rgba(15,23,42,.05);
+      transition: .25s;
+      display: flex;
+      flex-direction: column;
+    }
 
+    .service-card:hover {
+      transform: translateY(-7px);
       box-shadow: var(--shadow);
-
-      transition:
-        transform 0.25s,
-        box-shadow 0.25s;
-    }
-
-    .service:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 22px 45px rgba(16, 73, 110, 0.15);
-    }
-
-    .service.featured {
-      border: 2px solid var(--secondary);
-    }
-
-    .popular {
-      position: absolute;
-      top: -13px;
-      right: 18px;
-
-      padding: 5px 11px;
-
-      background: var(--secondary);
-      color: white;
-
-      border-radius: 100px;
-
-      font-size: 11px;
-      font-weight: 800;
-      text-transform: uppercase;
+      border-color: #bfdbfe;
     }
 
     .service-icon {
-      width: 58px;
-      height: 58px;
-
+      width: 55px;
+      height: 55px;
       display: grid;
       place-items: center;
-
-      background: #eaf7ff;
-      border-radius: 17px;
-
-      font-size: 27px;
+      background: #eaf3ff;
+      border-radius: 16px;
+      font-size: 26px;
       margin-bottom: 20px;
     }
 
-    .service h3 {
-      font-size: 20px;
+    .service-card h3 {
+      color: var(--secondary);
+      font-size: 21px;
       margin-bottom: 10px;
     }
 
-    .service p {
-      color: var(--text);
-      min-height: 52px;
-      margin-bottom: 20px;
+    .service-card p {
+      color: var(--muted);
+      font-size: 15px;
+      flex: 1;
     }
 
-    .service-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .price {
-      font-size: 22px;
-      font-weight: 900;
+    .service-price {
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
       color: var(--primary);
+      font-size: 20px;
+      font-weight: 900;
     }
 
-    .duration {
-      color: #7890a1;
-      font-size: 13px;
+    .service-time {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 3px;
     }
 
     /* =========================
        WHY US
     ========================= */
 
-    .why-us {
-      max-width: none;
-      background: white;
-    }
-
-    .why-us-inner {
-      max-width: 1200px;
-      margin: auto;
-      padding: 90px 24px;
-    }
-
-    .advantages {
+    .why-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 25px;
     }
 
-    .advantage {
-      padding: 28px;
-      background: var(--light);
-      border-radius: 20px;
+    .why-card {
+      padding: 30px;
       border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: white;
     }
 
-    .advantage-icon {
-      font-size: 30px;
-      margin-bottom: 15px;
-    }
-
-    .advantage h3 {
+    .why-number {
+      font-size: 36px;
+      font-weight: 900;
+      color: #bfdbfe;
       margin-bottom: 8px;
     }
 
-    .advantage p {
-      color: var(--text);
+    .why-card h3 {
+      color: var(--secondary);
+      margin-bottom: 8px;
+    }
+
+    .why-card p {
+      color: var(--muted);
     }
 
     /* =========================
        BOOKING
     ========================= */
 
-    .booking-section {
-      background:
-        radial-gradient(
-          circle at top right,
-          rgba(18,168,224,0.10),
-          transparent 35%
-        );
+    .booking {
+      background: var(--light);
     }
 
     .booking-wrapper {
       max-width: 850px;
       margin: auto;
-    }
-
-    .booking-card {
       background: white;
-      border: 1px solid var(--border);
-      border-radius: 28px;
       padding: 40px;
-
+      border-radius: 28px;
       box-shadow: var(--shadow);
+      border: 1px solid var(--border);
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0 20px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
 
     .form-group {
-      margin-bottom: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
     }
 
     .form-group.full {
@@ -553,205 +380,142 @@
     }
 
     label {
-      display: block;
-      margin-bottom: 7px;
-
-      font-size: 14px;
       font-weight: 800;
-      color: var(--dark);
+      color: var(--secondary);
     }
 
     input,
-    select {
+    select,
+    textarea {
       width: 100%;
-      height: 50px;
-
-      padding: 0 14px;
-
-      border: 1px solid #cbdde8;
-      border-radius: 11px;
-
-      background: #fbfdff;
-      color: var(--dark);
-
+      padding: 14px 15px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-size: 16px;
       outline: none;
-
-      transition:
-        border 0.2s,
-        box-shadow 0.2s;
+      background: white;
+      color: var(--text);
+      transition: .2s;
     }
 
     input:focus,
-    select:focus {
+    select:focus,
+    textarea:focus {
       border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(8,125,204,0.10);
+      box-shadow: 0 0 0 4px rgba(22,119,255,.1);
     }
 
-    .booking-submit {
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .selected-info {
+      margin-top: 20px;
+      padding: 18px;
+      background: #eff6ff;
+      border-radius: 14px;
+      color: #1e40af;
+      display: none;
+    }
+
+    .form-submit {
+      margin-top: 25px;
       width: 100%;
-      height: 54px;
-
-      margin-top: 8px;
-
-      background: var(--primary);
-      color: white;
-
-      border: none;
-      border-radius: 12px;
-
-      font-weight: 900;
-      cursor: pointer;
-
-      transition: 0.2s;
-    }
-
-    .booking-submit:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-
-    .form-note {
-      text-align: center;
-      color: #7b91a0;
-      font-size: 13px;
-      margin-top: 14px;
     }
 
     /* =========================
        CONFIRMATION
     ========================= */
 
-    #confirmation {
+    .confirmation {
       display: none;
-
       margin-top: 25px;
-
-      background: white;
-      border: 2px solid #8bdcbb;
-
-      border-radius: 24px;
-      padding: 35px;
-
-      box-shadow: var(--shadow);
+      padding: 25px;
+      border-radius: 18px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
     }
 
-    .confirmation-icon {
-      width: 65px;
-      height: 65px;
-
-      display: grid;
-      place-items: center;
-
-      margin: 0 auto 18px;
-
-      background: #e5f9ef;
+    .confirmation h3 {
       color: var(--success);
-
-      border-radius: 50%;
-
-      font-size: 30px;
+      margin-bottom: 10px;
     }
 
-    #confirmation h3 {
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 8px;
+    .confirmation p {
+      color: #166534;
     }
 
-    .confirmation-intro {
-      text-align: center;
-      color: var(--text);
-      margin-bottom: 25px;
-    }
-
-    #bookingDetails {
-      display: grid;
-      gap: 10px;
-    }
-
-    .detail-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-
-      padding: 13px 16px;
-
-      background: #f5fbff;
-      border-radius: 10px;
-    }
-
-    .detail-label {
-      color: #698092;
-    }
-
-    .detail-value {
-      font-weight: 800;
-      text-align: right;
-    }
-
-    .confirmation-warning {
-      margin-top: 20px;
+    .confirmation-details {
+      margin-top: 15px;
       padding: 15px;
-
-      background: #fff8e6;
+      background: white;
       border-radius: 12px;
-
-      color: #795f20;
-      font-size: 14px;
-      text-align: center;
+      border: 1px solid #dcfce7;
     }
 
     /* =========================
        CONTACT
     ========================= */
 
-    .contact-section {
-      max-width: none;
-      background: #eaf7ff;
-    }
-
-    .contact-inner {
-      max-width: 1000px;
-      margin: auto;
-      padding: 90px 24px;
-    }
-
     .contact-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
     }
 
     .contact-card {
-      background: white;
-      padding: 25px;
-
-      border-radius: 18px;
-
-      text-align: center;
-
-      box-shadow: 0 8px 25px rgba(16,73,110,0.08);
-    }
-
-    .contact-card-icon {
-      font-size: 28px;
-      margin-bottom: 12px;
+      padding: 35px;
+      border-radius: var(--radius);
+      background: var(--secondary);
+      color: white;
     }
 
     .contact-card h3 {
-      font-size: 16px;
-      margin-bottom: 6px;
+      font-size: 27px;
+      margin-bottom: 20px;
     }
 
-    .contact-card a {
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 800;
+    .contact-item {
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255,255,255,.12);
     }
 
-    .contact-card p {
-      color: var(--text);
+    .contact-item:last-child {
+      border-bottom: none;
+    }
+
+    .contact-label {
+      display: block;
+      color: #94a3b8;
+      font-size: 13px;
+      margin-bottom: 3px;
+    }
+
+    .contact-value {
+      font-size: 18px;
       font-weight: 700;
+    }
+
+    .contact-value:hover {
+      color: #60a5fa;
+    }
+
+    .contact-info {
+      padding: 35px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .contact-info h3 {
+      color: var(--secondary);
+      font-size: 27px;
+      margin-bottom: 15px;
+    }
+
+    .contact-info p {
+      color: var(--muted);
+      margin-bottom: 15px;
     }
 
     /* =========================
@@ -759,163 +523,71 @@
     ========================= */
 
     footer {
-      background: #092f49;
-      color: white;
-      padding: 35px 24px;
+      background: #020617;
+      color: #94a3b8;
+      padding: 30px 0;
     }
 
     .footer-inner {
-      max-width: 1100px;
-      margin: auto;
-
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 25px;
+      gap: 20px;
     }
 
     .footer-logo {
+      color: white;
       font-size: 23px;
       font-weight: 900;
     }
 
-    .footer-info {
-      color: rgba(255,255,255,0.72);
-      font-size: 14px;
-      text-align: right;
-    }
-
-    /* =========================
-       SCROLL ANIMATION
-    ========================= */
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(25px);
-      transition: opacity 0.7s, transform 0.7s;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    .footer-logo span {
+      color: #60a5fa;
     }
 
     /* =========================
        MOBILE
     ========================= */
 
-    @media (max-width: 1000px) {
-
-      .hero-inner {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-card {
-        max-width: 600px;
-      }
-
-      .services {
+    @media (max-width: 900px) {
+      .service-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .advantages {
-        grid-template-columns: 1fr 1fr;
+      .why-grid {
+        grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 700px) {
-
-      .header-inner {
-        min-height: auto;
-        padding: 16px 18px;
-
-        flex-direction: column;
-        gap: 12px;
+      .nav {
+        min-height: 65px;
       }
 
-      nav {
-        width: 100%;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 8px 15px;
-      }
-
-      nav a {
-        font-size: 13px;
-      }
-
-      .nav-button {
-        padding: 8px 12px;
+      .nav-links {
+        display: none;
       }
 
       .hero {
-        min-height: auto;
-        padding: 60px 18px;
-      }
-
-      .hero-inner {
-        gap: 40px;
+        min-height: 600px;
       }
 
       .hero h1 {
-        font-size: 58px;
-      }
-
-      .hero h2 {
-        font-size: 25px;
+        letter-spacing: -2px;
       }
 
       .hero p {
-        font-size: 16px;
+        font-size: 17px;
       }
 
-      .hero-buttons {
-        flex-direction: column;
-      }
-
-      .hero-buttons .button {
-        width: 100%;
-      }
-
-      section {
-        padding: 65px 18px;
-      }
-
-      .services {
+      .form-grid,
+      .contact-grid,
+      .service-grid {
         grid-template-columns: 1fr;
       }
 
-      .advantages {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .form-group.full {
-        grid-column: auto;
-      }
-
-      .booking-card {
-        padding: 24px 18px;
-      }
-
-      #confirmation {
-        padding: 25px 18px;
-      }
-
-      .detail-row {
-        flex-direction: column;
-        gap: 2px;
-      }
-
-      .detail-value {
-        text-align: left;
+      .booking-wrapper {
+        padding: 25px 20px;
       }
 
       .footer-inner {
@@ -923,22 +595,8 @@
         text-align: center;
       }
 
-      .footer-info {
-        text-align: center;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
+      section {
+        padding: 70px 0;
       }
     }
   </style>
@@ -947,118 +605,246 @@
 <body>
 
   <!-- =========================
-       MENU
+       HEADER
   ========================= -->
 
   <header>
-
-    <div class="header-inner">
+    <div class="container nav">
 
       <a href="#start" class="logo">
-        FIZIO<span>.</span>
+        FI<span>ZIO</span>
       </a>
 
-      <nav>
-        <a href="#start">Start</a>
-        <a href="#uslugi">Usługi</a>
-        <a href="#o-nas">Dlaczego my?</a>
-        <a href="#rezerwacja">Rezerwacja</a>
-        <a href="#kontakt">Kontakt</a>
-
-        <a href="#rezerwacja" class="nav-button">
-          Umów wizytę
-        </a>
-      </nav>
+      <ul class="nav-links">
+        <li><a href="#uslugi">Usługi</a></li>
+        <li><a href="#dlaczego">Dlaczego my?</a></li>
+        <li><a href="#rezerwacja">Rezerwacja</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+        <li>
+          <a href="#rezerwacja" class="nav-button">
+            Umów wizytę
+          </a>
+        </li>
+      </ul>
 
     </div>
-
   </header>
-
-
-  <!-- =========================
-       HERO
-  ========================= -->
 
   <main>
 
+    <!-- =========================
+         HERO
+    ========================= -->
+
     <section class="hero" id="start">
 
-      <div class="hero-inner">
+      <div class="container">
+        <div class="hero-content">
 
-        <div class="hero-text">
-
-          <div class="hero-badge">
-            ✦ Masaż • Fizjoterapia • Relaks
+          <div class="badge">
+            Profesjonalna opieka nad Twoim ciałem
           </div>
 
           <h1>
-            FIZIO<span>.</span>
+            Zadbaj o swoje ciało z <span>FIZIO</span>
           </h1>
 
-          <h2>
-            Zadbaj o swoje ciało.
-            Poczuj różnicę.
-          </h2>
-
           <p>
-            Profesjonalny masaż i fizjoterapia
-            dopasowane do Twoich potrzeb.
-            Umów wizytę szybko i wygodnie.
+            Masaż i fizjoterapia dopasowane do Twoich potrzeb.
+            Umów wizytę i poświęć chwilę na regenerację.
           </p>
 
           <div class="hero-buttons">
-
-            <a
-              href="#rezerwacja"
-              class="button button-primary"
-            >
-              Umów wizytę →
+            <a href="#rezerwacja" class="btn btn-primary">
+              Umów wizytę
             </a>
 
-            <a
-              href="#uslugi"
-              class="button button-outline"
-            >
+            <a href="#uslugi" class="btn btn-light">
               Zobacz usługi
             </a>
-
           </div>
 
         </div>
+      </div>
 
+    </section>
 
-        <div class="hero-card">
+    <!-- =========================
+         SERVICES
+    ========================= -->
 
-          <div class="hero-card-icon">
-            💙
-          </div>
+    <section class="services" id="uslugi">
 
-          <h3>
-            Indywidualne podejście
-          </h3>
+      <div class="container">
+
+        <div class="section-heading">
+          <span>Oferta</span>
+
+          <h2>Nasze usługi</h2>
 
           <p>
-            Każda wizyta jest dopasowana
-            do potrzeb i oczekiwań klienta.
+            Wybierz usługę dopasowaną do tego, czego aktualnie potrzebujesz.
+          </p>
+        </div>
+
+        <div class="service-grid">
+
+          <!-- FIZJOTERAPIA -->
+
+          <article class="service-card">
+
+            <div class="service-icon">
+              🩺
+            </div>
+
+            <h3>Fizjoterapia</h3>
+
+            <p>
+              Indywidualna praca ukierunkowana na poprawę sprawności
+              i lepsze funkcjonowanie ciała.
+            </p>
+
+            <div class="service-price">
+              6 zł
+            </div>
+
+            <div class="service-time">
+              20 minut
+            </div>
+
+          </article>
+
+          <!-- MASAŻ RELAKSACYJNY -->
+
+          <article class="service-card">
+
+            <div class="service-icon">
+              🌿
+            </div>
+
+            <h3>Masaż relaksacyjny</h3>
+
+            <p>
+              Chwila odprężenia i relaksu po intensywnym dniu.
+            </p>
+
+            <div class="service-price">
+              5 zł
+            </div>
+
+            <div class="service-time">
+              20 minut
+            </div>
+
+          </article>
+
+          <!-- MASAŻ POBUDZAJĄCY -->
+
+          <article class="service-card">
+
+            <div class="service-icon">
+              ⚡
+            </div>
+
+            <h3>Masaż pobudzający</h3>
+
+            <p>
+              Dynamiczna forma masażu dla osób, które chcą się
+              rozbudzić i poczuć więcej energii.
+            </p>
+
+            <div class="service-price">
+              5 zł
+            </div>
+
+            <div class="service-time">
+              20 minut
+            </div>
+
+          </article>
+
+          <!-- ZESTAW PREMIUM -->
+
+          <article class="service-card">
+
+            <div class="service-icon">
+              ⭐
+            </div>
+
+            <h3>Zestaw Premium</h3>
+
+            <p>
+              Rozszerzona godzinna usługa dla osób, które chcą
+              przeznaczyć więcej czasu na kompleksową wizytę.
+            </p>
+
+            <div class="service-price">
+              100 zł
+            </div>
+
+            <div class="service-time">
+              60 minut
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         WHY US
+    ========================= -->
+
+    <section id="dlaczego">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span>FIZIO</span>
+
+          <h2>Dlaczego warto?</h2>
+
+          <p>
+            Proste podejście, wygodna rezerwacja i oferta dopasowana
+            do różnych potrzeb.
           </p>
 
-          <div class="quick-info">
+        </div>
 
-            <div>
-              ✓
-              Profesjonalna obsługa
-            </div>
+        <div class="why-grid">
 
-            <div>
-              ✓
-              Dogodne godziny
-            </div>
+          <div class="why-card">
+            <div class="why-number">01</div>
 
-            <div>
-              ✓
-              Szybka rezerwacja
-            </div>
+            <h3>Indywidualne podejście</h3>
 
+            <p>
+              Każda wizyta może być dopasowana do Twoich aktualnych potrzeb.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-number">02</div>
+
+            <h3>Prosta rezerwacja</h3>
+
+            <p>
+              Wybierz usługę, dzień i godzinę, a następnie prześlij formularz.
+            </p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-number">03</div>
+
+            <h3>Wygodna lokalizacja</h3>
+
+            <p>
+              FIZIO znajduje się pod adresem Adamów 8.
+            </p>
           </div>
 
         </div>
@@ -1067,98 +853,150 @@
 
     </section>
 
-
     <!-- =========================
-         USŁUGI
+         BOOKING
     ========================= -->
 
-    <section id="uslugi">
+    <section class="booking" id="rezerwacja">
 
-      <div class="section-header reveal">
+      <div class="container">
 
-        <div class="section-label">
-          Oferta
+        <div class="section-heading">
+
+          <span>Rezerwacja</span>
+
+          <h2>Umów swoją wizytę</h2>
+
+          <p>
+            Wypełnij formularz, aby przygotować rezerwację.
+          </p>
+
         </div>
 
-        <h2 class="section-title">
-          Wybierz odpowiednią usługę
-        </h2>
+        <div class="booking-wrapper">
 
-        <p class="section-description">
-          Zobacz dostępne zabiegi i wybierz wariant,
-          który najlepiej odpowiada Twoim potrzebom.
-        </p>
+          <form id="bookingForm">
 
-      </div>
+            <div class="form-grid">
 
+              <div class="form-group">
+                <label for="name">
+                  Imię i nazwisko
+                </label>
 
-      <div class="services">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Np. Jan Kowalski"
+                  required
+                >
+              </div>
 
+              <div class="form-group">
+                <label for="phone">
+                  Numer telefonu
+                </label>
 
-        <article class="service reveal">
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="Np. 123 456 789"
+                  required
+                >
+              </div>
 
-          <div class="service-icon">
-            💆
-          </div>
+              <div class="form-group">
+                <label for="email">
+                  E-mail
+                </label>
 
-          <h3>
-            Masaż relaksacyjny
-          </h3>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="twoj@email.pl"
+                  required
+                >
+              </div>
 
-          <p>
-            Relaks i odprężenie po intensywnym dniu.
-          </p>
+              <div class="form-group">
+                <label for="service">
+                  Usługa
+                </label>
 
-          <div class="service-bottom">
+                <select id="service" name="service" required>
 
-            <div class="price">
-              5 zł
-            </div>
+                  <option value="">
+                    Wybierz usługę
+                  </option>
 
-            <div class="duration">
-              20 min
-            </div>
+                  <option
+                    value="Fizjoterapia"
+                    data-price="6"
+                    data-duration="20 min"
+                  >
+                    Fizjoterapia — 20 min / 6 zł
+                  </option>
 
-          </div>
+                  <option
+                    value="Masaż relaksacyjny"
+                    data-price="5"
+                    data-duration="20 min"
+                  >
+                    Masaż relaksacyjny — 20 min / 5 zł
+                  </option>
 
-        </article>
+                  <option
+                    value="Masaż pobudzający"
+                    data-price="5"
+                    data-duration="20 min"
+                  >
+                    Masaż pobudzający — 20 min / 5 zł
+                  </option>
 
+                  <option
+                    value="Zestaw Premium"
+                    data-price="100"
+                    data-duration="60 min"
+                  >
+                    Zestaw Premium — 60 min / 100 zł
+                  </option>
 
-        <article class="service reveal">
+                </select>
+              </div>
 
-          <div class="service-icon">
-            💪
-          </div>
+              <div class="form-group">
+                <label for="date">
+                  Data wizyty
+                </label>
 
-          <h3>
-            Masaż pobudzający
-          </h3>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  required
+                >
+              </div>
 
-          <p>
-            Pobudzenie i rozluźnienie mięśni.
-          </p>
+              <div class="form-group">
+                <label for="time">
+                  Godzina
+                </label>
 
-          <div class="service-bottom">
+                <input
+                  type="time"
+                  id="time"
+                  name="time"
+                  required
+                >
+              </div>
 
-            <div class="price">
-              5 zł
-            </div>
+              <div class="form-group full">
 
-            <div class="duration">
-              20 min
-            </div>
+                <label for="message">
+                  Dodatkowa wiadomość
+                </label>
 
-          </div>
-
-        </article>
-
-
-        <article class="service reveal">
-
-          <div class="service-icon">
-            🧑‍⚕️
-          </div>
-
-          <h3>
-            Fizjoterapia
-      
+                
