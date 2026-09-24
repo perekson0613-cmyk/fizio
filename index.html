@@ -1,267 +1,8 @@
-<!-- =========================
-     REZERWACJA
-========================= -->
-
-<section class="booking" id="rezerwacja">
-
-  <div class="container">
-
-    <div class="section-heading">
-
-      <span>Rezerwacja</span>
-
-      <h2>Umów wizytę</h2>
-
-      <p>
-        Wybierz usługę, dzień oraz dogodną godzinę.
-      </p>
-
-    </div>
-
-    <div class="booking-wrapper">
-
-      <form id="bookingForm">
-
-        <div class="form-grid">
-
-          <div class="form-group">
-            <label for="name">
-              Imię i nazwisko
-            </label>
-
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Np. Jan Kowalski"
-              required
-            >
-          </div>
-
-          <div class="form-group">
-            <label for="phone">
-              Numer telefonu
-            </label>
-
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              placeholder="Np. 791 671 346"
-              required
-            >
-          </div>
-
-          <div class="form-group">
-            <label for="email">
-              E-mail
-            </label>
-
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="twoj@email.pl"
-              required
-            >
-          </div>
-
-          <div class="form-group">
-
-            <label for="service">
-              Wybierz usługę
-            </label>
-
-            <select id="service" required>
-
-              <option value="">
-                Wybierz usługę
-              </option>
-
-              <option
-                value="Fizjoterapia"
-                data-price="6"
-                data-duration="20 min"
-              >
-                Fizjoterapia — 20 min / 6 zł
-              </option>
-
-              <option
-                value="Masaż relaksacyjny"
-                data-price="5"
-                data-duration="20 min"
-              >
-                Masaż relaksacyjny — 20 min / 5 zł
-              </option>
-
-              <option
-                value="Masaż pobudzający"
-                data-price="5"
-                data-duration="20 min"
-              >
-                Masaż pobudzający — 20 min / 5 zł
-              </option>
-
-              <option
-                value="Zestaw Premium"
-                data-price="100"
-                data-duration="60 min"
-              >
-                Zestaw Premium — 60 min / 100 zł
-              </option>
-
-            </select>
-
-          </div>
-
-          <div class="form-group">
-
-            <label for="date">
-              Data wizyty
-            </label>
-
-            <input
-              type="date"
-              id="date"
-              required
-            >
-
-          </div>
-
-          <div class="form-group">
-
-            <label for="time">
-              Godzina wizyty
-            </label>
-
-            <select id="time" required>
-
-              <option value="">
-                Wybierz godzinę
-              </option>
-
-            </select>
-
-          </div>
-
-          <div class="form-group full">
-
-            <label for="message">
-              Dodatkowa wiadomość
-            </label>
-
-            <textarea
-              id="message"
-              placeholder="Opcjonalnie..."
-            ></textarea>
-
-          </div>
-
-        </div>
-
-        <div
-          class="selected-info"
-          id="selectedInfo"
-        ></div>
-
-        <button
-          type="submit"
-          class="btn btn-primary form-submit"
-        >
-          Umów wizytę
-        </button>
-
-      </form>
-
-
-      <!-- =========================
-           PODZIĘKOWANIE
-      ========================= -->
-
-      <div
-        class="confirmation"
-        id="confirmation"
-      >
-
-        <div style="font-size: 50px; margin-bottom: 10px;">
-          ✓
-        </div>
-
-        <h3>
-          Dziękujemy za umówienie wizyty!
-        </h3>
-
-        <p>
-          Twoje dane rezerwacji zostały przygotowane.
-        </p>
-
-        <p style="margin-top: 10px;">
-          <strong>
-            Prosimy wysłać potwierdzenie do specjalisty.
-          </strong>
-        </p>
-
-        <div
-          class="confirmation-details"
-          id="confirmationDetails"
-        ></div>
-
-        <a
-          href="#"
-          id="sendConfirmation"
-          class="btn btn-primary"
-          style="margin-top: 20px; width: 100%;"
-        >
-          ✉ Wyślij potwierdzenie do specjalisty
-        </a>
-
-        <button
-          type="button"
-          id="newBooking"
-          class="btn"
-          style="
-            margin-top: 12px;
-            width: 100%;
-            background: #f1f5f9;
-            color: #0f172a;
-          "
-        >
-          Umów kolejną wizytę
-        </button>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
 <script>
-
-  /* =========================
-     ELEMENTY
-  ========================= */
-
-  const bookingForm =
-    document.getElementById("bookingForm");
-
-  const serviceSelect =
-    document.getElementById("service");
-
-  const dateInput =
-    document.getElementById("date");
-
-  const timeSelect =
-    document.getElementById("time");
-
-  const selectedInfo =
-    document.getElementById("selectedInfo");
-
-  const confirmation =
-    document.getElementById("confirmation");
-
+  const bookingForm = document.getElementById("bookingForm");
+  const serviceSelect = document.getElementById("service");
+  const selectedInfo = document.getElementById("selectedInfo");
+  const confirmation = document.getElementById("confirmation");
   const confirmationDetails =
     document.getElementById("confirmationDetails");
 
@@ -271,9 +12,15 @@
   const newBooking =
     document.getElementById("newBooking");
 
+  const dateInput =
+    document.getElementById("date");
+
+  const timeSelect =
+    document.getElementById("time");
+
 
   /* =========================
-     DATA OD DZISIAJ
+     DZISIEJSZA DATA
   ========================= */
 
   const today = new Date();
@@ -289,373 +36,223 @@
 
 
   /* =========================
-     GODZINY
-     15:00 → 21:00
+     GODZINY 15:00 - 21:00
      CO 20 MINUT
   ========================= */
 
-  function createTimeSlots() {
+  timeSelect.innerHTML = `
+    <option value="">Wybierz godzinę</option>
+  `;
 
-    timeSelect.innerHTML = `
-      <option value="">
-        Wybierz godzinę
-      </option>
-    `;
+  for (let hour = 15; hour <= 21; hour++) {
 
-    const startHour = 15;
-    const endHour = 21;
+    for (let minute = 0; minute < 60; minute += 20) {
 
-    for (
-      let hour = startHour;
-      hour <= endHour;
-      hour++
-    ) {
-
-      for (
-        let minute = 0;
-        minute < 60;
-        minute += 20
-      ) {
-
-        /*
-          Dla godziny 21 dodajemy tylko 21:00.
-        */
-
-        if (
-          hour === endHour &&
-          minute > 0
-        ) {
-          continue;
-        }
-
-        const hourText =
-          String(hour).padStart(2, "0");
-
-        const minuteText =
-          String(minute).padStart(2, "0");
-
-        const time =
-          `${hourText}:${minuteText}`;
-
-        const option =
-          document.createElement("option");
-
-        option.value = time;
-        option.textContent = time;
-
-        timeSelect.appendChild(option);
+      // O 21:00 nie dodajemy 21:20 ani 21:40
+      if (hour === 21 && minute > 0) {
+        continue;
       }
+
+      const time =
+        String(hour).padStart(2, "0") +
+        ":" +
+        String(minute).padStart(2, "0");
+
+      const option =
+        document.createElement("option");
+
+      option.value = time;
+      option.textContent = time;
+
+      timeSelect.appendChild(option);
     }
   }
 
-  createTimeSlots();
-
 
   /* =========================
-     INFORMACJA O USŁUDZE
+     INFORMACJA O WYBRANEJ USŁUDZE
   ========================= */
 
-  serviceSelect.addEventListener(
-    "change",
-    function () {
+  serviceSelect.addEventListener("change", function () {
 
-      const selected =
-        this.options[this.selectedIndex];
+    const selected =
+      this.options[this.selectedIndex];
 
-      if (!selected.value) {
-
-        selectedInfo.style.display = "none";
-        selectedInfo.textContent = "";
-
-        return;
-      }
-
-      const price =
-        selected.dataset.price;
-
-      const duration =
-        selected.dataset.duration;
-
-      selectedInfo.innerHTML = `
-        <strong>${selected.value}</strong><br>
-        Czas wizyty: ${duration}<br>
-        Cena: ${price} zł
-      `;
-
-      selectedInfo.style.display = "block";
+    if (!selected.value) {
+      selectedInfo.style.display = "none";
+      return;
     }
-  );
+
+    const price =
+      selected.dataset.price;
+
+    const duration =
+      selected.dataset.duration;
+
+    selectedInfo.innerHTML = `
+      <strong>${selected.value}</strong><br>
+      Czas trwania: ${duration}<br>
+      Cena: ${price} zł
+    `;
+
+    selectedInfo.style.display = "block";
+  });
 
 
   /* =========================
-     REZERWACJA
+     UMÓWIENIE WIZYTY
   ========================= */
 
-  bookingForm.addEventListener(
-    "submit",
-    function (event) {
+  bookingForm.addEventListener("submit", function (event) {
 
-      event.preventDefault();
+    event.preventDefault();
 
-      const name =
-        document.getElementById("name")
-          .value
-          .trim();
+    const name =
+      document.getElementById("name").value.trim();
 
-      const phone =
-        document.getElementById("phone")
-          .value
-          .trim();
+    const phone =
+      document.getElementById("phone").value.trim();
 
-      const email =
-        document.getElementById("email")
-          .value
-          .trim();
+    const email =
+      document.getElementById("email").value.trim();
 
-      const service =
-        serviceSelect.value;
+    const service =
+      serviceSelect.value;
 
-      const date =
-        dateInput.value;
+    const date =
+      dateInput.value;
 
-      const time =
-        timeSelect.value;
+    const time =
+      timeSelect.value;
 
-      const message =
-        document.getElementById("message")
-          .value
-          .trim();
+    const message =
+      document.getElementById("message")
+        ? document.getElementById("message").value.trim()
+        : "";
 
 
-      if (
-        !name ||
-        !phone ||
-        !email ||
-        !service ||
-        !date ||
-        !time
-      ) {
-
-        alert(
-          "Uzupełnij wszystkie wymagane pola."
-        );
-
-        return;
-      }
+    if (
+      !name ||
+      !phone ||
+      !email ||
+      !service ||
+      !date ||
+      !time
+    ) {
+      alert("Uzupełnij wszystkie wymagane pola.");
+      return;
+    }
 
 
-      const selected =
-        serviceSelect.options[
-          serviceSelect.selectedIndex
-        ];
-
-      const price =
-        selected.dataset.price;
-
-      const duration =
-        selected.dataset.duration;
-
-
-      const formattedDate =
-        new Date(
-          date + "T00:00:00"
-        ).toLocaleDateString(
-          "pl-PL",
-          {
-            day: "2-digit",
-            month: "2-digit",
-            year: "numeric"
-          }
-        );
-
-
-      /* =========================
-         SZCZEGÓŁY REZERWACJI
-      ========================= */
-
-      confirmationDetails.innerHTML = "";
-
-
-      const details = [
-        ["Imię i nazwisko", name],
-        ["Telefon", phone],
-        ["E-mail", email],
-        ["Usługa", service],
-        ["Czas trwania", duration],
-        ["Cena", price + " zł"],
-        ["Data", formattedDate],
-        ["Godzina", time]
+    const selected =
+      serviceSelect.options[
+        serviceSelect.selectedIndex
       ];
 
+    const price =
+      selected.dataset.price;
 
-      details.forEach(
-        function ([label, value]) {
-
-          const row =
-            document.createElement("div");
-
-          row.style.marginBottom = "8px";
-
-          const strong =
-            document.createElement("strong");
-
-          strong.textContent =
-            label + ": ";
-
-          row.appendChild(strong);
-
-          row.appendChild(
-            document.createTextNode(value)
-          );
-
-          confirmationDetails.appendChild(row);
-        }
-      );
+    const duration =
+      selected.dataset.duration;
 
 
-      if (message) {
-
-        const row =
-          document.createElement("div");
-
-        row.style.marginTop = "12px";
-
-        const strong =
-          document.createElement("strong");
-
-        strong.textContent =
-          "Wiadomość: ";
-
-        row.appendChild(strong);
-
-        row.appendChild(
-          document.createTextNode(message)
-        );
-
-        confirmationDetails.appendChild(row);
-      }
+    const formattedDate =
+      new Date(date + "T00:00:00")
+        .toLocaleDateString("pl-PL");
 
 
-      /* =========================
-         E-MAIL DO SPECJALISTY
-      ========================= */
+    /* =========================
+       PODZIĘKOWANIE
+    ========================= */
 
-      const subject =
-        encodeURIComponent(
-          "Potwierdzenie wizyty — FIZIO"
-        );
-
-
-      let emailBody =
-        "Dzień dobry,%0D%0A%0D%0A" +
-
-        "potwierdzam umówienie wizyty w FIZIO.%0D%0A%0D%0A" +
-
-        "Imię i nazwisko: " +
-        encodeURIComponent(name) +
-
-        "%0D%0A" +
-
-        "Telefon: " +
-        encodeURIComponent(phone) +
-
-        "%0D%0A" +
-
-        "E-mail: " +
-        encodeURIComponent(email) +
-
-        "%0D%0A" +
-
-        "Usługa: " +
-        encodeURIComponent(service) +
-
-        "%0D%0A" +
-
-        "Czas trwania: " +
-        encodeURIComponent(duration) +
-
-        "%0D%0A" +
-
-        "Cena: " +
-        encodeURIComponent(price + " zł") +
-
-        "%0D%0A" +
-
-        "Data: " +
-        encodeURIComponent(formattedDate) +
-
-        "%0D%0A" +
-
-        "Godzina: " +
-        encodeURIComponent(time);
+    confirmationDetails.innerHTML = `
+      <div><strong>Imię i nazwisko:</strong> ${name}</div>
+      <div><strong>Telefon:</strong> ${phone}</div>
+      <div><strong>E-mail:</strong> ${email}</div>
+      <div><strong>Usługa:</strong> ${service}</div>
+      <div><strong>Czas trwania:</strong> ${duration}</div>
+      <div><strong>Cena:</strong> ${price} zł</div>
+      <div><strong>Data:</strong> ${formattedDate}</div>
+      <div><strong>Godzina:</strong> ${time}</div>
+    `;
 
 
-      if (message) {
+    /* =========================
+       WIADOMOŚĆ DO SPECJALISTY
+    ========================= */
 
-        emailBody +=
-          "%0D%0A%0D%0ADodatkowa wiadomość: " +
-          encodeURIComponent(message);
-      }
+    let emailBody =
+      `Dzień dobry,
 
+potwierdzam umówienie wizyty w FIZIO.
 
-      emailBody +=
-        "%0D%0A%0D%0APozdrawiam.";
+Imię i nazwisko: ${name}
+Telefon: ${phone}
+E-mail: ${email}
+Usługa: ${service}
+Czas trwania: ${duration}
+Cena: ${price} zł
+Data: ${formattedDate}
+Godzina: ${time}`;
 
-
-      sendConfirmation.href =
-        "mailto:kacperson.0613@gmail.com" +
-        "?subject=" +
-        subject +
-        "&body=" +
-        emailBody;
-
-
-      /* =========================
-         POKAŻ PODZIĘKOWANIE
-      ========================= */
-
-      bookingForm.style.display = "none";
-
-      confirmation.style.display = "block";
-
-      confirmation.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
-
+    if (message) {
+      emailBody += `
+Dodatkowa wiadomość: ${message}`;
     }
-  );
+
+    emailBody += `
+
+Pozdrawiam,
+${name}`;
+
+
+    sendConfirmation.href =
+      "mailto:kacperson.0613@gmail.com" +
+      "?subject=" +
+      encodeURIComponent("Potwierdzenie wizyty — FIZIO") +
+      "&body=" +
+      encodeURIComponent(emailBody);
+
+
+    /* =========================
+       ZAMIEŃ FORMULARZ
+       NA PODZIĘKOWANIE
+    ========================= */
+
+    bookingForm.style.display = "none";
+
+    confirmation.style.display = "block";
+
+    confirmation.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+
+  });
 
 
   /* =========================
-     NOWA REZERWACJA
+     KOLEJNA WIZYTA
   ========================= */
 
-  newBooking.addEventListener(
-    "click",
-    function () {
+  if (newBooking) {
+
+    newBooking.addEventListener("click", function () {
 
       bookingForm.reset();
 
       selectedInfo.style.display = "none";
 
-      selectedInfo.textContent = "";
-
       confirmation.style.display = "none";
 
       bookingForm.style.display = "block";
 
-      window.location.hash = "rezerwacja";
+      document.getElementById("rezerwacja")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
 
-      window.scrollTo({
-        top:
-          document.getElementById(
-            "rezerwacja"
-          ).offsetTop - 80,
+    });
 
-        behavior: "smooth"
-      });
-    }
-  );
-
+  }
 </script>
