@@ -3,7 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>FIZIO – Masaż i Fizjoterapia</title>
+
+  <meta
+    name="description"
+    content="FIZIO – profesjonalny masaż i fizjoterapia. Umów wizytę online."
+  >
 
   <style>
     * {
@@ -12,127 +18,128 @@
       padding: 0;
     }
 
+    :root {
+      --bg: #071522;
+      --bg2: #0b1f32;
+      --card: #10283b;
+      --card2: #14364d;
+
+      --blue: #3ea6ff;
+      --blue2: #1976d2;
+      --blue-light: #5db7ff;
+
+      --text: #f4f9ff;
+      --muted: #a7bacb;
+
+      --border: rgba(255,255,255,.10);
+      --shadow: 0 20px 50px rgba(0,0,0,.30);
+    }
+
     html {
       scroll-behavior: smooth;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #f7faf9;
-      color: #18322d;
-      line-height: 1.6;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(62,166,255,.14),
+          transparent 32%
+        ),
+        linear-gradient(
+          135deg,
+          var(--bg),
+          var(--bg2)
+        );
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.5;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
     }
 
     /* =========================
-       MENU
+       NAVIGACJA
     ========================= */
 
     header {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255,255,255,0.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(43, 92, 79, 0.12);
-      box-shadow: 0 5px 25px rgba(20, 60, 50, 0.06);
+
+      background: rgba(7,21,34,.84);
+      backdrop-filter: blur(18px);
+
+      border-bottom:
+        1px solid rgba(255,255,255,.08);
     }
 
-    nav {
+    .nav {
       max-width: 1200px;
-      margin: auto;
       min-height: 78px;
+      margin: auto;
+      padding: 0 24px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 25px;
       gap: 25px;
     }
 
     .logo {
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-main {
-      font-size: 32px;
+      font-size: 25px;
       font-weight: 900;
-      letter-spacing: 5px;
-      color: #2d6557;
-      position: relative;
-    }
-
-    .logo-main::after {
-      content: "";
-      position: absolute;
-      width: 30px;
-      height: 3px;
-      background: #b5d8cb;
-      left: 3px;
-      bottom: -4px;
-      border-radius: 10px;
-    }
-
-    .logo-sub {
-      font-size: 10px;
       letter-spacing: 2px;
-      color: #718982;
-      text-transform: uppercase;
-      margin-top: 8px;
+      line-height: 1;
     }
 
-    nav ul {
-      list-style: none;
+    .logo span {
+      color: var(--blue);
+
+      text-shadow:
+        0 0 12px rgba(62,166,255,.35),
+        0 0 28px rgba(62,166,255,.15);
+    }
+
+    .logo small {
+      display: block;
+      margin-top: 6px;
+
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: 3px;
+      font-weight: 600;
+    }
+
+    nav {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: 25px;
     }
 
-    nav ul li a {
-      color: #31564d;
-      text-decoration: none;
+    nav a {
+      color: #dcecff;
+      font-size: 14px;
       font-weight: 600;
-      font-size: 15px;
-      transition: 0.25s;
-      position: relative;
+
+      transition:
+        color .2s ease,
+        transform .2s ease;
     }
 
-    nav ul li a::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 2px;
-      left: 50%;
-      bottom: -7px;
-      background: #4d8c7a;
-      transition: 0.25s;
-      transform: translateX(-50%);
-    }
-
-    nav ul li a:hover {
-      color: #4d8c7a;
-    }
-
-    nav ul li a:hover::after {
-      width: 100%;
-    }
-
-    .nav-button {
-      background: #315f53;
-      color: white !important;
-      padding: 11px 18px;
-      border-radius: 25px;
-      box-shadow: 0 7px 20px rgba(49,95,83,0.18);
-    }
-
-    .nav-button::after {
-      display: none;
-    }
-
-    .nav-button:hover {
-      background: #244d43;
-      transform: translateY(-2px);
+    nav a:hover {
+      color: var(--blue);
+      transform: translateY(-1px);
     }
 
     /* =========================
@@ -140,130 +147,178 @@
     ========================= */
 
     .hero {
-      min-height: 620px;
-      display: flex;
-      align-items: center;
+      max-width: 1200px;
+      margin: auto;
+      padding: 45px 24px 35px;
+    }
+
+    .hero-box {
       position: relative;
       overflow: hidden;
+
+      min-height: 470px;
+
+      padding: 60px;
+
+      border:
+        1px solid rgba(255,255,255,.12);
+
+      border-radius: 30px;
+
       background:
-        linear-gradient(rgba(235,245,241,0.86), rgba(247,250,249,0.94)),
-        url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1800&q=85")
-        center/cover;
+        linear-gradient(
+          90deg,
+          rgba(3,16,29,.55),
+          rgba(3,16,29,.25)
+        ),
+        url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1800&q=90");
+
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,.40);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .hero::before {
+    .hero-box::before {
       content: "";
+
       position: absolute;
-      width: 380px;
-      height: 380px;
-      border-radius: 50%;
-      background: rgba(185, 220, 208, 0.28);
-      top: -130px;
-      right: -100px;
-      filter: blur(3px);
+      inset: 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(3,16,29,.65) 0%,
+          rgba(3,16,29,.38) 42%,
+          rgba(3,16,29,.12) 100%
+        );
+
+      pointer-events: none;
     }
 
-    .hero::after {
+    .hero-box::after {
       content: "";
+
       position: absolute;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      border: 1px solid rgba(63, 116, 101, 0.15);
-      bottom: -120px;
-      left: 7%;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at 80% 40%,
+          rgba(62,166,255,.13),
+          transparent 32%
+        );
+
+      pointer-events: none;
     }
 
-    .hero-content {
-      max-width: 1200px;
-      width: 100%;
-      margin: auto;
-      padding: 70px 25px;
+    .hero-box > * {
       position: relative;
       z-index: 2;
     }
 
-    .hero-small {
-      color: #548174;
-      text-transform: uppercase;
-      letter-spacing: 4px;
-      font-weight: bold;
-      font-size: 13px;
-      margin-bottom: 15px;
+    .badge {
+      width: fit-content;
+
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 8px 14px;
+
+      border-radius: 999px;
+
+      background:
+        rgba(62,166,255,.13);
+
+      color: var(--blue-light);
+
+      border:
+        1px solid rgba(62,166,255,.30);
+
+      font-size: 12px;
+      font-weight: 800;
+
+      margin-bottom: 22px;
     }
 
-    .hero h1 {
-      font-size: clamp(48px, 8vw, 82px);
-      line-height: 0.95;
-      color: #214c42;
-      letter-spacing: -3px;
-      margin-bottom: 25px;
+    .live-dot {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: var(--blue-light);
+
+      box-shadow:
+        0 0 14px rgba(93,183,255,.8);
     }
 
-    .hero h1 span {
-      color: #689b8b;
+    h1 {
+      max-width: 760px;
+
+      font-size:
+        clamp(42px, 7vw, 78px);
+
+      line-height: .98;
+
+      letter-spacing: -4px;
+
+      color: #ffffff;
+
+      text-shadow:
+        0 5px 25px rgba(0,0,0,.35);
     }
 
-    .hero p {
-      max-width: 600px;
-      font-size: 19px;
-      color: #506b64;
-      margin-bottom: 32px;
+    h1 span {
+      color: var(--blue-light);
+
+      text-shadow:
+        0 0 25px rgba(62,166,255,.35);
     }
 
-    .hero-button {
-      display: inline-block;
-      text-decoration: none;
-      background: #315f53;
-      color: white;
-      padding: 15px 28px;
-      border-radius: 30px;
-      font-weight: bold;
-      box-shadow: 0 10px 28px rgba(49,95,83,0.2);
-      transition: 0.25s;
-    }
+    .hero-text {
+      max-width: 650px;
 
-    .hero-button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 32px rgba(49,95,83,0.28);
+      margin-top: 23px;
+
+      color: #d3e3ef;
+
+      font-size: 16px;
+      line-height: 1.7;
+
+      text-shadow:
+        0 2px 10px rgba(0,0,0,.45);
     }
 
     /* =========================
        SEKCJE
     ========================= */
 
-    section {
-      padding: 85px 20px;
-    }
-
-    .container {
+    .section {
       max-width: 1200px;
       margin: auto;
+      padding: 70px 24px;
     }
 
-    .section-heading {
-      text-align: center;
-      margin-bottom: 45px;
+    .section-header {
+      margin-bottom: 30px;
     }
 
-    .section-heading span {
-      color: #6b998c;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 12px;
-      font-weight: bold;
+    .section-header h2 {
+      font-size: 36px;
+      line-height: 1.1;
     }
 
-    .section-heading h2 {
-      font-size: 38px;
-      color: #244f44;
-      margin-top: 8px;
-    }
-
-    .section-heading p {
-      color: #70837e;
-      max-width: 650px;
-      margin: 10px auto 0;
+    .section-header p {
+      color: var(--muted);
+      margin-top: 9px;
     }
 
     /* =========================
@@ -271,34 +326,61 @@
     ========================= */
 
     .services {
-      background: white;
-    }
-
-    .service-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 22px;
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 20px;
     }
 
     .service-card {
-      background: #f9fcfb;
-      border: 1px solid #e2eee9;
-      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(28,75,62,0.06);
-      transition: 0.3s;
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--card),
+          var(--card2)
+        );
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 22px;
+
+      box-shadow:
+        0 12px 35px rgba(0,0,0,.18);
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
     }
 
     .service-card:hover {
       transform: translateY(-7px);
-      box-shadow: 0 18px 40px rgba(28,75,62,0.12);
+
+      border-color:
+        rgba(62,166,255,.40);
+
+      box-shadow:
+        0 20px 45px rgba(0,0,0,.28);
     }
 
     .service-image {
       width: 100%;
       height: 190px;
+
       object-fit: cover;
+
       display: block;
+
+      transition:
+        transform .4s ease;
+    }
+
+    .service-card:hover .service-image {
+      transform: scale(1.04);
     }
 
     .service-content {
@@ -306,59 +388,147 @@
     }
 
     .service-content h3 {
-      color: #285449;
-      margin-bottom: 8px;
       font-size: 20px;
+      margin-bottom: 8px;
     }
 
     .service-content p {
-      color: #71817d;
-      font-size: 14px;
-      min-height: 45px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
     }
 
     .service-price {
-      margin-top: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      color: #315f53;
-      font-weight: bold;
+      margin-top: 18px;
+
+      color: var(--blue-light);
+
+      font-size: 21px;
+      font-weight: 900;
     }
 
-    .service-price strong {
-      font-size: 20px;
+    .service-time {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: normal;
+    }
+
+    /* =========================
+       O NAS
+    ========================= */
+
+    .about-box {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+
+      gap: 25px;
+
+      padding: 35px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 25px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(16,40,59,.90),
+          rgba(20,54,77,.70)
+        );
+
+      box-shadow: var(--shadow);
+    }
+
+    .about-box h2 {
+      font-size: 34px;
+      margin-bottom: 15px;
+    }
+
+    .about-box p {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .about-highlight {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .highlight {
+      padding: 18px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 16px;
+
+      background:
+        rgba(255,255,255,.025);
+    }
+
+    .highlight strong {
+      color: var(--blue-light);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .highlight span {
+      color: var(--muted);
+      font-size: 13px;
     }
 
     /* =========================
        REZERWACJA
     ========================= */
 
-    .booking {
-      background:
-        radial-gradient(circle at top right, rgba(180,215,204,0.28), transparent 35%),
-        #eef6f3;
+    .booking-wrapper {
+      max-width: 800px;
+      margin: auto;
     }
 
-    .booking-box {
-      max-width: 850px;
-      margin: auto;
-      background: white;
-      padding: 42px;
-      border-radius: 28px;
-      box-shadow: 0 18px 55px rgba(33,78,66,0.09);
-      border: 1px solid #e0eee9;
+    .booking-card {
+      padding: 35px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 25px;
+
+      background:
+        linear-gradient(
+          145deg,
+          var(--card),
+          var(--card2)
+        );
+
+      box-shadow: var(--shadow);
+    }
+
+    .booking-card h2 {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .booking-card > p {
+      color: var(--muted);
+      margin-bottom: 25px;
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns:
+        repeat(2, 1fr);
+
       gap: 18px;
     }
 
     .form-group {
       display: flex;
       flex-direction: column;
+      gap: 7px;
     }
 
     .form-group.full {
@@ -366,245 +536,280 @@
     }
 
     label {
+      color: #dbeaf5;
       font-size: 13px;
-      font-weight: bold;
-      color: #496b62;
-      margin-bottom: 7px;
+      font-weight: 700;
     }
 
     input,
     select {
       width: 100%;
-      border: 1px solid #d7e6e1;
-      background: #fbfdfc;
-      border-radius: 13px;
-      padding: 13px 14px;
-      font-size: 15px;
-      color: #284b43;
+
+      padding: 14px 15px;
+
+      border-radius: 12px;
+
+      border:
+        1px solid rgba(255,255,255,.10);
+
+      background:
+        rgba(4,17,29,.80);
+
+      color: white;
+
       outline: none;
-      transition: 0.2s;
+
+      transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
     }
 
     input:focus,
     select:focus {
-      border-color: #74a99a;
-      box-shadow: 0 0 0 4px rgba(116,169,154,0.12);
+      border-color: var(--blue);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(62,166,255,.12);
+    }
+
+    option {
+      background: #0b1f32;
+      color: white;
     }
 
     .submit-button {
       width: 100%;
-      border: none;
+
       margin-top: 22px;
-      padding: 16px;
-      border-radius: 15px;
-      background: #315f53;
+
+      padding: 16px 20px;
+
+      border: none;
+      border-radius: 13px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #3ea6ff,
+          #1976d2
+        );
+
       color: white;
-      font-size: 16px;
-      font-weight: bold;
+
+      font-size: 15px;
+      font-weight: 900;
+
       cursor: pointer;
-      transition: 0.25s;
-      box-shadow: 0 10px 25px rgba(49,95,83,0.2);
+
+      box-shadow:
+        0 10px 30px
+        rgba(25,118,210,.25);
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        filter .2s ease;
     }
 
     .submit-button:hover {
-      background: #244d43;
       transform: translateY(-2px);
+
+      filter: brightness(1.08);
+
+      box-shadow:
+        0 15px 35px
+        rgba(25,118,210,.35);
     }
 
-    .error-message {
-      display: none;
-      margin-top: 15px;
-      padding: 13px;
-      background: #fff1f1;
-      color: #a34a4a;
-      border-radius: 12px;
-      text-align: center;
-      font-size: 14px;
+    .submit-button:active {
+      transform: translateY(0);
     }
 
     /* =========================
-       PODZIĘKOWANIE
+       POTWIERDZENIE
     ========================= */
 
     .confirmation {
       display: none;
+
       text-align: center;
-      padding: 25px 5px;
+
+      padding: 35px 20px;
     }
 
     .confirmation-icon {
       width: 75px;
       height: 75px;
+
       margin: 0 auto 20px;
-      border-radius: 50%;
-      background: #e5f3ed;
-      color: #397563;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 34px;
-      font-weight: bold;
+
+      border-radius: 50%;
+
+      background:
+        rgba(62,166,255,.12);
+
+      border:
+        1px solid
+        rgba(62,166,255,.30);
+
+      color: var(--blue-light);
+
+      font-size: 35px;
+
+      box-shadow:
+        0 0 35px
+        rgba(62,166,255,.12);
     }
 
-    .confirmation h3 {
-      font-size: 30px;
-      color: #285449;
-      margin-bottom: 10px;
-    }
-
-    .confirmation p {
-      color: #657b74;
+    .confirmation h2 {
+      font-size: 32px;
       margin-bottom: 8px;
     }
 
+    .confirmation > p {
+      color: var(--muted);
+    }
+
     .booking-details {
-      background: #f5faf8;
-      border: 1px solid #dfebe7;
-      border-radius: 18px;
-      padding: 20px;
-      margin: 25px 0;
+      max-width: 500px;
+
+      margin: 25px auto;
+
+      padding: 22px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 16px;
+
+      background:
+        rgba(255,255,255,.025);
+
       text-align: left;
     }
 
     .booking-details p {
-      margin: 7px 0;
+      padding: 7px 0;
+
+      border-bottom:
+        1px solid
+        rgba(255,255,255,.06);
+
+      color: var(--muted);
+    }
+
+    .booking-details p:last-child {
+      border-bottom: none;
+    }
+
+    .booking-details strong {
+      color: white;
     }
 
     .mail-button {
-      display: inline-block;
-      text-decoration: none;
-      padding: 13px 22px;
-      border-radius: 25px;
-      background: #315f53;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 13px 20px;
+
+      border-radius: 12px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #3ea6ff,
+          #1976d2
+        );
+
       color: white;
-      font-weight: bold;
-      transition: 0.2s;
+
+      font-weight: 800;
+
+      transition: transform .2s ease;
     }
 
     .mail-button:hover {
-      background: #244d43;
+      transform: translateY(-2px);
     }
 
     /* =========================
-       O NAS
-    ========================= */
-
-    .about {
-      background: white;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
-    }
-
-    .about-image {
-      width: 100%;
-      border-radius: 28px;
-      box-shadow: 0 18px 45px rgba(25,70,58,0.12);
-    }
-
-    .about-text h2 {
-      font-size: 38px;
-      color: #285449;
-      margin-bottom: 18px;
-    }
-
-    .about-text p {
-      color: #687c76;
-      margin-bottom: 15px;
-    }
-
-    .detail-list {
-      list-style: none;
-      margin-top: 22px;
-    }
-
-    .detail-list li {
-      margin: 12px 0;
-      color: #47685f;
-      font-weight: 600;
-    }
-
-    .detail-list li::before {
-      content: "✓";
-      display: inline-flex;
-      width: 25px;
-      height: 25px;
-      align-items: center;
-      justify-content: center;
-      background: #e2f0eb;
-      color: #397563;
-      border-radius: 50%;
-      margin-right: 10px;
-    }
-
-    /* =========================
-       STOPKA
+       FOOTER
     ========================= */
 
     footer {
-      background: #21483e;
-      color: #d9ebe5;
-      padding: 50px 20px;
+      margin-top: 30px;
+
+      padding: 30px 24px;
+
+      border-top:
+        1px solid var(--border);
+
       text-align: center;
+
+      color: var(--muted);
+
+      font-size: 12px;
     }
 
-    .footer-logo {
-      font-size: 35px;
-      font-weight: 900;
-      letter-spacing: 6px;
-      color: white;
-      margin-bottom: 10px;
-    }
-
-    footer p {
-      color: #b8d1c9;
-      font-size: 14px;
-    }
-
-    .footer-line {
-      width: 60px;
-      height: 2px;
-      background: #7fb1a1;
-      margin: 20px auto;
+    footer strong {
+      color: var(--blue-light);
     }
 
     /* =========================
-       RWD
+       RESPONSYWNOŚĆ
     ========================= */
 
-    @media (max-width: 900px) {
-      .service-grid {
-        grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 1000px) {
+
+      .services {
+        grid-template-columns:
+          repeat(2, 1fr);
       }
 
-      .about-grid {
+      .about-box {
         grid-template-columns: 1fr;
       }
+
     }
 
     @media (max-width: 700px) {
+
       nav {
-        min-height: auto;
-        padding: 15px 18px;
-        flex-direction: column;
-      }
-
-      nav ul {
-        gap: 15px;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .logo-main {
-        font-size: 29px;
+        display: none;
       }
 
       .hero {
-        min-height: 550px;
+        padding-top: 25px;
+      }
+
+      .hero-box {
+        min-height: 470px;
+
+        padding: 35px 25px;
+
+        border-radius: 22px;
+
+        background-position:
+          62% center;
+      }
+
+      h1 {
+        font-size: 46px;
+        letter-spacing: -2px;
+      }
+
+      .hero-text {
+        font-size: 14px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
       }
 
       .form-grid {
@@ -615,32 +820,40 @@
         grid-column: auto;
       }
 
-      .booking-box {
-        padding: 25px 18px;
+      .booking-card {
+        padding: 25px 20px;
       }
+
+      .section {
+        padding: 50px 20px;
+      }
+
     }
 
-    @media (max-width: 550px) {
-      .service-grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 450px) {
+
+      .logo {
+        font-size: 21px;
       }
 
-      section {
-        padding: 65px 15px;
+      .logo small {
+        font-size: 8px;
       }
 
-      .hero-content {
-        padding: 60px 20px;
+      .hero-box {
+        min-height: 500px;
       }
 
-      .hero h1 {
-        font-size: 55px;
+      h1 {
+        font-size: 40px;
       }
 
-      .section-heading h2,
-      .about-text h2 {
-        font-size: 31px;
+      .section-header h2,
+      .booking-card h2,
+      .about-box h2 {
+        font-size: 29px;
       }
+
     }
   </style>
 </head>
@@ -652,21 +865,22 @@
   ========================= -->
 
   <header>
-    <nav>
-      <a href="#start" class="logo">
-        <div>
-          <div class="logo-main">FIZIO</div>
-          <div class="logo-sub">Masaż & Fizjoterapia</div>
-        </div>
+
+    <div class="nav">
+
+      <a href="#" class="logo">
+        <span>FIZIO</span>
+        <small>MASAŻ & FIZJOTERAPIA</small>
       </a>
 
-      <ul>
-        <li><a href="#start">Start</a></li>
-        <li><a href="#uslugi">Usługi</a></li>
-        <li><a href="#onas">O nas</a></li>
-        <li><a href="#rezerwacja" class="nav-button">Rezerwacja</a></li>
-      </ul>
-    </nav>
+      <nav>
+        <a href="#uslugi">Usługi</a>
+        <a href="#o-nas">O nas</a>
+        <a href="#rezerwacja">Rezerwacja</a>
+      </nav>
+
+    </div>
+
   </header>
 
 
@@ -674,28 +888,28 @@
        HERO
   ========================= -->
 
-  <section class="hero" id="start">
-    <div class="hero-content">
+  <section class="hero">
 
-      <div class="hero-small">
-        Twoje ciało. Twój komfort.
+    <div class="hero-box">
+
+      <div class="badge">
+        <span class="live-dot"></span>
+        PROFESJONALNA OPIEKA
       </div>
 
       <h1>
-        Witaj w<br>
-        <span>FIZIO.</span>
+        Zadbaj o swoje
+        <span>ciało.</span>
       </h1>
 
-      <p>
-        Profesjonalna fizjoterapia i masaż stworzone z myślą
-        o Twoim komforcie, regeneracji i dobrym samopoczuciu.
+      <p class="hero-text">
+        Profesjonalny masaż i fizjoterapia dopasowane
+        do Twoich potrzeb. Umów swoją wizytę online
+        i zadbaj o regenerację, relaks oraz dobre samopoczucie.
       </p>
 
-      <a href="#rezerwacja" class="hero-button">
-        Umów wizytę
-      </a>
-
     </div>
+
   </section>
 
 
@@ -703,109 +917,150 @@
        USŁUGI
   ========================= -->
 
-  <section class="services" id="uslugi">
+  <section class="section" id="uslugi">
 
-    <div class="container">
+    <div class="section-header">
 
-      <div class="section-heading">
-        <span>Oferta FIZIO</span>
-        <h2>Wybierz swoją usługę</h2>
-        <p>
-          Zadbaj o swoje ciało i wybierz zabieg dopasowany do Twoich potrzeb.
-        </p>
-      </div>
+      <h2>Nasze usługi</h2>
 
-      <div class="service-grid">
+      <p>
+        Wybierz zabieg odpowiedni dla siebie.
+      </p>
 
-        <div class="service-card">
-          <img
-            class="service-image"
-            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80"
-            alt="Fizjoterapia"
-          >
-
-          <div class="service-content">
-            <h3>Fizjoterapia</h3>
-
-            <p>
-              Indywidualna praca nad komfortem ruchu i regeneracją.
-            </p>
-
-            <div class="service-price">
-              <span>20 min</span>
-              <strong>6 zł</strong>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="service-card">
-          <img
-            class="service-image"
-            src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80"
-            alt="Masaż relaksacyjny"
-          >
-
-          <div class="service-content">
-            <h3>Masaż relaksacyjny</h3>
-
-            <p>
-              Chwila odprężenia, wyciszenia i przyjemnego relaksu.
-            </p>
-
-            <div class="service-price">
-              <span>20 min</span>
-              <strong>5 zł</strong>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="service-card">
-          <img
-            class="service-image"
-            src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=800&q=80"
-            alt="Masaż pobudzający"
-          >
-
-          <div class="service-content">
-            <h3>Masaż pobudzający</h3>
-
-            <p>
-              Pobudzenie mięśni i przygotowanie ciała do działania.
-            </p>
-
-            <div class="service-price">
-              <span>20 min</span>
-              <strong>5 zł</strong>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="service-card">
-          <img
-            class="service-image"
-            src="https://images.unsplash.com/photo-1556760544-74068565f05c?auto=format&fit=crop&w=800&q=80"
-            alt="Pakiet Premium"
-          >
-
-          <div class="service-content">
-            <h3>Pakiet Premium</h3>
-
-            <p>
-              Rozszerzona sesja dla osób, które chcą poświęcić sobie więcej czasu.
-            </p>
-
-            <div class="service-price">
-              <span>60 min</span>
-              <strong>100 zł</strong>
-            </div>
-          </div>
-        </div>
-
-      </div>
     </div>
+
+
+    <div class="services">
+
+      <!-- Fizjoterapia -->
+
+      <article class="service-card">
+
+        <img
+          class="service-image"
+          src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=85"
+          alt="Fizjoterapia"
+          loading="lazy"
+        >
+
+        <div class="service-content">
+
+          <h3>Fizjoterapia</h3>
+
+          <p>
+            Indywidualnie dopasowana praca nad
+            poprawą sprawności i komfortu ruchu.
+          </p>
+
+          <div class="service-price">
+            6 zł
+            <span class="service-time">
+              / 20 min
+            </span>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- Masaż relaksacyjny -->
+
+      <article class="service-card">
+
+        <img
+          class="service-image"
+          src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=85"
+          alt="Masaż relaksacyjny"
+          loading="lazy"
+        >
+
+        <div class="service-content">
+
+          <h3>Masaż relaksacyjny</h3>
+
+          <p>
+            Chwila odprężenia pomagająca rozluźnić
+            napięte mięśnie i odpocząć.
+          </p>
+
+          <div class="service-price">
+            5 zł
+            <span class="service-time">
+              / 20 min
+            </span>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- Masaż pobudzający -->
+
+      <article class="service-card">
+
+        <img
+          class="service-image"
+          src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=1000&q=85"
+          alt="Masaż pobudzający"
+          loading="lazy"
+        >
+
+        <div class="service-content">
+
+          <h3>Masaż pobudzający</h3>
+
+          <p>
+            Dynamiczny masaż dla osób, które chcą
+            poczuć więcej energii i lekkości.
+          </p>
+
+          <div class="service-price">
+            5 zł
+            <span class="service-time">
+              / 20 min
+            </span>
+          </div>
+
+        </div>
+
+      </article>
+
+
+      <!-- Premium -->
+
+      <article class="service-card">
+
+        <img
+          class="service-image"
+          src="https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=1000&q=85"
+          alt="Pakiet Premium"
+          loading="lazy"
+        >
+
+        <div class="service-content">
+
+          <h3>Pakiet Premium</h3>
+
+          <p>
+            Rozszerzona sesja łącząca różne formy
+            pracy dla pełnego odprężenia.
+          </p>
+
+          <div class="service-price">
+            100 zł
+            <span class="service-time">
+              / 60 min
+            </span>
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
   </section>
 
 
@@ -813,47 +1068,71 @@
        O NAS
   ========================= -->
 
-  <section class="about" id="onas">
+  <section class="section" id="o-nas">
 
-    <div class="container">
+    <div class="about-box">
 
-      <div class="about-grid">
+      <div>
 
-        <img
-          class="about-image"
-          src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=85"
-          alt="FIZIO"
-        >
+        <h2>
+          Dlaczego FIZIO?
+        </h2>
 
-        <div class="about-text">
+        <p>
+          Stawiamy na spokojną atmosferę, indywidualne
+          podejście oraz komfort podczas każdej wizyty.
+          Niezależnie od tego, czy potrzebujesz chwili
+          relaksu, regeneracji czy pracy nad sprawnością,
+          dobieramy odpowiednią formę zabiegu.
+        </p>
 
-          <span class="hero-small">Dlaczego FIZIO?</span>
+      </div>
 
-          <h2>
-            Zadbaj o siebie.
-          </h2>
 
-          <p>
-            W FIZIO stawiamy na komfort, spokojną atmosferę
-            oraz indywidualne podejście do każdej wizyty.
-          </p>
+      <div class="about-highlight">
 
-          <p>
-            Naszym celem jest stworzenie miejsca, w którym możesz
-            na chwilę zwolnić i zadbać o swoje ciało.
-          </p>
+        <div class="highlight">
 
-          <ul class="detail-list">
-            <li>Indywidualne podejście</li>
-            <li>Przyjemna atmosfera</li>
-            <li>Profesjonalne podejście</li>
-            <li>Dogodne godziny wizyt</li>
-          </ul>
+          <strong>
+            Indywidualne podejście
+          </strong>
+
+          <span>
+            Każda wizyta jest dopasowana do potrzeb klienta.
+          </span>
+
+        </div>
+
+
+        <div class="highlight">
+
+          <strong>
+            Wygodna rezerwacja
+          </strong>
+
+          <span>
+            Wybierz usługę, specjalistę, dzień oraz godzinę.
+          </span>
+
+        </div>
+
+
+        <div class="highlight">
+
+          <strong>
+            Komfort
+          </strong>
+
+          <span>
+            Dbamy o spokojną i przyjazną atmosferę.
+          </span>
 
         </div>
 
       </div>
+
     </div>
+
   </section>
 
 
@@ -861,132 +1140,229 @@
        REZERWACJA
   ========================= -->
 
-  <section class="booking" id="rezerwacja">
+  <section class="section" id="rezerwacja">
 
-    <div class="container">
+    <div class="booking-wrapper">
 
-      <div class="section-heading">
-        <span>Rezerwacja</span>
-        <h2>Umów swoją wizytę</h2>
-        <p>
-          Wybierz usługę, specjalistę, dzień i godzinę.
-        </p>
-      </div>
+      <div class="booking-card">
+
+        <div id="bookingFormContainer">
+
+          <h2>
+            Umów wizytę
+          </h2>
+
+          <p>
+            Wypełnij formularz, aby zarezerwować termin.
+          </p>
 
 
-      <div class="booking-box">
+          <form id="bookingForm">
 
-        <form id="bookingForm">
+            <div class="form-grid">
 
-          <div class="form-grid">
 
-            <div class="form-group">
-              <label for="service">Usługa</label>
+              <!-- Usługa -->
 
-              <select id="service" required>
-                <option value="">Wybierz usługę</option>
-                <option value="Fizjoterapia">Fizjoterapia – 20 min / 6 zł</option>
-                <option value="Masaż relaksacyjny">Masaż relaksacyjny – 20 min / 5 zł</option>
-                <option value="Masaż pobudzający">Masaż pobudzający – 20 min / 5 zł</option>
-                <option value="Pakiet Premium">Pakiet Premium – 60 min / 100 zł</option>
-              </select>
+              <div class="form-group full">
+
+                <label for="service">
+                  Usługa
+                </label>
+
+                <select
+                  id="service"
+                  required
+                >
+
+                  <option value="">
+                    Wybierz usługę
+                  </option>
+
+                  <option value="Fizjoterapia">
+                    Fizjoterapia — 20 min / 6 zł
+                  </option>
+
+                  <option value="Masaż relaksacyjny">
+                    Masaż relaksacyjny — 20 min / 5 zł
+                  </option>
+
+                  <option value="Masaż pobudzający">
+                    Masaż pobudzający — 20 min / 5 zł
+                  </option>
+
+                  <option value="Pakiet Premium">
+                    Pakiet Premium — 60 min / 100 zł
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <!-- Specjalista -->
+
+              <div class="form-group full">
+
+                <label for="specialist">
+                  Specjalista
+                </label>
+
+                <select
+                  id="specialist"
+                  required
+                >
+
+                  <option value="Kacper">
+                    Kacper
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <!-- Data -->
+
+              <div class="form-group">
+
+                <label for="date">
+                  Data
+                </label>
+
+                <input
+                  type="date"
+                  id="date"
+                  required
+                >
+
+              </div>
+
+
+              <!-- Godzina -->
+
+              <div class="form-group">
+
+                <label for="time">
+                  Godzina
+                </label>
+
+                <select
+                  id="time"
+                  required
+                >
+
+                  <option value="">
+                    Najpierw wybierz datę
+                  </option>
+
+                </select>
+
+              </div>
+
+
+              <!-- Imię -->
+
+              <div class="form-group">
+
+                <label for="name">
+                  Imię i nazwisko
+                </label>
+
+                <input
+                  type="text"
+                  id="name"
+                  placeholder="Jan Kowalski"
+                  autocomplete="name"
+                  required
+                >
+
+              </div>
+
+
+              <!-- Telefon -->
+
+              <div class="form-group">
+
+                <label for="phone">
+                  Telefon
+                </label>
+
+                <input
+                  type="tel"
+                  id="phone"
+                  placeholder="123 456 789"
+                  autocomplete="tel"
+                  required
+                >
+
+              </div>
+
+
+              <!-- Email -->
+
+              <div class="form-group full">
+
+                <label for="email">
+                  E-mail
+                </label>
+
+                <input
+                  type="email"
+                  id="email"
+                  placeholder="twoj@email.pl"
+                  autocomplete="email"
+                  required
+                >
+
+              </div>
+
             </div>
 
 
-            <div class="form-group">
-              <label for="specialist">Specjalista</label>
+            <button
+              type="submit"
+              class="submit-button"
+            >
+              Zarezerwuj wizytę
+            </button>
 
-              <select id="specialist" required>
-                <option value="">Wybierz specjalistę</option>
-                <option value="Kacper">Kacper</option>
-              </select>
-            </div>
+          </form>
 
-
-            <div class="form-group">
-              <label for="date">Data</label>
-              <input type="date" id="date" required>
-            </div>
+        </div>
 
 
-            <div class="form-group">
-              <label for="time">Godzina</label>
+        <!-- =========================
+             POTWIERDZENIE
+        ========================= -->
 
-              <select id="time" required>
-                <option value="">Wybierz godzinę</option>
-              </select>
-            </div>
-
-
-            <div class="form-group">
-              <label for="name">Imię i nazwisko</label>
-              <input
-                type="text"
-                id="name"
-                placeholder="Wpisz imię i nazwisko"
-                required
-              >
-            </div>
-
-
-            <div class="form-group">
-              <label for="phone">Telefon</label>
-              <input
-                type="tel"
-                id="phone"
-                placeholder="Numer telefonu"
-                required
-              >
-            </div>
-
-
-            <div class="form-group full">
-              <label for="email">E-mail</label>
-
-              <input
-                type="email"
-                id="email"
-                placeholder="Twój adres e-mail"
-                required
-              >
-            </div>
-
-          </div>
-
-
-          <button type="submit" class="submit-button">
-            Zarezerwuj wizytę
-          </button>
-
-          <div class="error-message" id="errorMessage"></div>
-
-        </form>
-
-
-        <!-- PODZIĘKOWANIE -->
-
-        <div class="confirmation" id="confirmation">
+        <div
+          id="confirmation"
+          class="confirmation"
+        >
 
           <div class="confirmation-icon">
             ✓
           </div>
 
-          <h3>Dziękujemy za zaufanie!</h3>
+          <h2>
+            Dziękujemy za zaufanie!
+          </h2>
 
           <p>
-            Twoja rezerwacja została przyjęta.
+            Rezerwacja została zapisana.
           </p>
 
-          <p>
-            Prosimy o wysłanie potwierdzenia do wybranego specjalisty.
-          </p>
-
-          <p>
-            Prosimy również o oczekiwanie na potwierdzenie wizyty przez specjalistę.
+          <p style="margin-top:8px;">
+            Prosimy o wysłanie potwierdzenia
+            do wybranego specjalisty.
           </p>
 
 
-          <div class="booking-details" id="bookingDetails"></div>
+          <div
+            id="bookingDetails"
+            class="booking-details"
+          ></div>
 
 
           <a
@@ -1001,303 +1377,608 @@
       </div>
 
     </div>
+
   </section>
 
 
   <!-- =========================
-       STOPKA
+       FOOTER
   ========================= -->
 
   <footer>
 
-    <div class="footer-logo">
-      FIZIO
-    </div>
+    <strong>FIZIO</strong>
+    – Masaż & Fizjoterapia
 
-    <div class="footer-line"></div>
+    <br><br>
 
-    <p>
-      Masaż & Fizjoterapia
-    </p>
-
-    <p>
-      © 2026 FIZIO. Wszystkie prawa zastrzeżone.
-    </p>
+    © 2026 FIZIO. Wszystkie prawa zastrzeżone.
 
   </footer>
 
 
+  <!-- =========================
+       JAVASCRIPT
+  ========================= -->
+
   <script>
+
     /*
-      =========================================
-      FIZIO – REZERWACJE LOKALNE
-      Bez Supabase
-      =========================================
+    ==========================================
+    GODZINY REZERWACJI
+    ==========================================
 
-      Rezerwacje zapisują się w localStorage
-      tej przeglądarki.
+    Od 15:00 do 21:00 co 20 minut.
+    O 21:00 jest ostatni dostępny termin.
     */
-
-    const form = document.getElementById("bookingForm");
-
-    const service = document.getElementById("service");
-    const specialist = document.getElementById("specialist");
-    const date = document.getElementById("date");
-    const time = document.getElementById("time");
-
-    const nameInput = document.getElementById("name");
-    const phoneInput = document.getElementById("phone");
-    const emailInput = document.getElementById("email");
-
-    const confirmation = document.getElementById("confirmation");
-    const bookingDetails = document.getElementById("bookingDetails");
-    const errorMessage = document.getElementById("errorMessage");
-
-
-    /* Godziny od 15:00 do 21:00 co 20 minut */
 
     const availableTimes = [];
 
-    for (let hour = 15; hour <= 21; hour++) {
+    for (
+      let hour = 15;
+      hour <= 21;
+      hour++
+    ) {
 
-      for (let minute = 0; minute < 60; minute += 20) {
+      for (
+        let minute = 0;
+        minute < 60;
+        minute += 20
+      ) {
 
-        if (hour === 21 && minute > 0) {
+        if (
+          hour === 21 &&
+          minute > 0
+        ) {
           continue;
         }
 
-        const h = String(hour).padStart(2, "0");
-        const m = String(minute).padStart(2, "0");
+        const h =
+          String(hour).padStart(2, "0");
 
-        availableTimes.push(`${h}:${m}`);
+        const m =
+          String(minute).padStart(2, "0");
+
+        availableTimes.push(
+          `${h}:${m}`
+        );
+
       }
+
     }
 
+
+    /*
+    ==========================================
+    ELEMENTY
+    ==========================================
+    */
+
+    const form =
+      document.getElementById(
+        "bookingForm"
+      );
+
+    const dateInput =
+      document.getElementById(
+        "date"
+      );
+
+    const timeSelect =
+      document.getElementById(
+        "time"
+      );
+
+    const confirmation =
+      document.getElementById(
+        "confirmation"
+      );
+
+    const bookingFormContainer =
+      document.getElementById(
+        "bookingFormContainer"
+      );
+
+    const bookingDetails =
+      document.getElementById(
+        "bookingDetails"
+      );
+
+
+    /*
+    ==========================================
+    MINIMALNA DATA
+    ==========================================
+    */
+
+    const today =
+      new Date();
+
+    const year =
+      today.getFullYear();
+
+    const month =
+      String(
+        today.getMonth() + 1
+      ).padStart(2, "0");
+
+    const day =
+      String(
+        today.getDate()
+      ).padStart(2, "0");
+
+    const todayString =
+      `${year}-${month}-${day}`;
+
+    dateInput.min =
+      todayString;
+
+
+    /*
+    ==========================================
+    LOCAL STORAGE
+    ==========================================
+    */
 
     function getReservations() {
-      return JSON.parse(
-        localStorage.getItem("fizio_reservations") || "[]"
-      );
+
+      try {
+
+        return JSON.parse(
+          localStorage.getItem(
+            "fizio_reservations"
+          ) || "[]"
+        );
+
+      } catch {
+
+        return [];
+
+      }
+
     }
 
 
-    function saveReservations(reservations) {
+    function saveReservations(
+      reservations
+    ) {
+
       localStorage.setItem(
         "fizio_reservations",
-        JSON.stringify(reservations)
+        JSON.stringify(
+          reservations
+        )
       );
+
     }
 
 
-    function loadTimes() {
+    /*
+    ==========================================
+    AKTUALIZACJA GODZIN
+    ==========================================
+    */
 
-      const selectedDate = date.value;
-      const selectedSpecialist = specialist.value;
+    function updateAvailableTimes() {
 
-      time.innerHTML = `
-        <option value="">Wybierz godzinę</option>
-      `;
+      const selectedDate =
+        dateInput.value;
 
-      if (!selectedDate || !selectedSpecialist) {
+      timeSelect.innerHTML = "";
+
+      if (!selectedDate) {
+
+        const option =
+          document.createElement(
+            "option"
+          );
+
+        option.value = "";
+
+        option.textContent =
+          "Najpierw wybierz datę";
+
+        timeSelect.appendChild(
+          option
+        );
+
         return;
+
       }
 
-      const reservations = getReservations();
 
-      const bookedTimes = reservations
-        .filter(reservation =>
-          reservation.date === selectedDate &&
-          reservation.specialist === selectedSpecialist
-        )
-        .map(reservation => reservation.time);
+      const reservations =
+        getReservations();
 
 
-      availableTimes.forEach(hour => {
+      const available =
+        availableTimes.filter(
+          time => {
 
-        const option = document.createElement("option");
+            return !reservations.some(
+              reservation =>
+                reservation.date ===
+                  selectedDate &&
+                reservation.time ===
+                  time &&
+                reservation.specialist ===
+                  "Kacper"
+            );
 
-        option.value = hour;
-        option.textContent = hour;
+          }
+        );
 
-        /*
-          Godzina zajęta jest po prostu niedostępna.
-          Użytkownik nie dostaje informacji,
-          kto ją zarezerwował ani przez kogo.
-        */
 
-        if (bookedTimes.includes(hour)) {
-          option.disabled = true;
+      if (!available.length) {
+
+        const option =
+          document.createElement(
+            "option"
+          );
+
+        option.value = "";
+
+        option.textContent =
+          "Brak wolnych godzin";
+
+        timeSelect.appendChild(
+          option
+        );
+
+        return;
+
+      }
+
+
+      const firstOption =
+        document.createElement(
+          "option"
+        );
+
+      firstOption.value = "";
+
+      firstOption.textContent =
+        "Wybierz godzinę";
+
+      timeSelect.appendChild(
+        firstOption
+      );
+
+
+      available.forEach(
+        time => {
+
+          const option =
+            document.createElement(
+              "option"
+            );
+
+          option.value =
+            time;
+
+          option.textContent =
+            time;
+
+          timeSelect.appendChild(
+            option
+          );
+
+        }
+      );
+
+    }
+
+
+    /*
+    ==========================================
+    DATA
+    ==========================================
+    */
+
+    dateInput.addEventListener(
+      "change",
+      updateAvailableTimes
+    );
+
+
+    /*
+    ==========================================
+    REZERWACJA
+    ==========================================
+    */
+
+    form.addEventListener(
+      "submit",
+      function(event) {
+
+        event.preventDefault();
+
+
+        const service =
+          document.getElementById(
+            "service"
+          ).value;
+
+        const specialist =
+          document.getElementById(
+            "specialist"
+          ).value;
+
+        const date =
+          dateInput.value;
+
+        const time =
+          timeSelect.value;
+
+        const name =
+          document.getElementById(
+            "name"
+          ).value.trim();
+
+        const phone =
+          document.getElementById(
+            "phone"
+          ).value.trim();
+
+        const email =
+          document.getElementById(
+            "email"
+          ).value.trim();
+
+
+        if (
+          !service ||
+          !specialist ||
+          !date ||
+          !time ||
+          !name ||
+          !phone ||
+          !email
+        ) {
+
+          alert(
+            "Proszę uzupełnić wszystkie pola."
+          );
+
+          return;
+
         }
 
-        time.appendChild(option);
-      });
+
+        /*
+        ======================================
+        SPRAWDZENIE TERMINU
+        ======================================
+        */
+
+        const reservations =
+          getReservations();
+
+
+        const alreadyBooked =
+          reservations.some(
+            reservation =>
+
+              reservation.date ===
+                date &&
+
+              reservation.time ===
+                time &&
+
+              reservation.specialist ===
+                specialist
+          );
+
+
+        if (alreadyBooked) {
+
+          alert(
+            "Ten termin został już zarezerwowany. Wybierz inną godzinę."
+          );
+
+          updateAvailableTimes();
+
+          return;
+
+        }
+
+
+        /*
+        ======================================
+        NOWA REZERWACJA
+        ======================================
+        */
+
+        const newReservation = {
+
+          id:
+            Date.now(),
+
+          service:
+            service,
+
+          specialist:
+            specialist,
+
+          date:
+            date,
+
+          time:
+            time,
+
+          name:
+            name,
+
+          phone:
+            phone,
+
+          email:
+            email,
+
+          createdAt:
+            new Date().toISOString()
+
+        };
+
+
+        reservations.push(
+          newReservation
+        );
+
+
+        saveReservations(
+          reservations
+        );
+
+
+        /*
+        ======================================
+        POTWIERDZENIE
+        ======================================
+        */
+
+        bookingDetails.innerHTML = `
+
+          <p>
+            <strong>Usługa:</strong>
+            ${escapeHTML(
+              newReservation.service
+            )}
+          </p>
+
+          <p>
+            <strong>Specjalista:</strong>
+            ${escapeHTML(
+              newReservation.specialist
+            )}
+          </p>
+
+          <p>
+            <strong>Data:</strong>
+            ${escapeHTML(
+              newReservation.date
+            )}
+          </p>
+
+          <p>
+            <strong>Godzina:</strong>
+            ${escapeHTML(
+              newReservation.time
+            )}
+          </p>
+
+          <p>
+            <strong>Imię i nazwisko:</strong>
+            ${escapeHTML(
+              newReservation.name
+            )}
+          </p>
+
+          <p>
+            <strong>Telefon:</strong>
+            ${escapeHTML(
+              newReservation.phone
+            )}
+          </p>
+
+          <p>
+            <strong>E-mail:</strong>
+            ${escapeHTML(
+              newReservation.email
+            )}
+          </p>
+
+        `;
+
+
+        bookingFormContainer.style.display =
+          "none";
+
+        confirmation.style.display =
+          "block";
+
+
+        window.scrollTo({
+
+          top:
+            confirmation.offsetTop - 100,
+
+          behavior:
+            "smooth"
+
+        });
+
+      }
+    );
+
+
+    /*
+    ==========================================
+    BEZPIECZNE WYŚWIETLANIE TEKSTU
+    ==========================================
+    */
+
+    function escapeHTML(value) {
+
+      return String(value)
+        .replaceAll(
+          "&",
+          "&amp;"
+        )
+        .replaceAll(
+          "<",
+          "&lt;"
+        )
+        .replaceAll(
+          ">",
+          "&gt;"
+        )
+        .replaceAll(
+          '"',
+          "&quot;"
+        )
+        .replaceAll(
+          "'",
+          "&#039;"
+        );
+
     }
 
 
-    date.addEventListener("change", loadTimes);
-    specialist.addEventListener("change", loadTimes);
+    /*
+    ==========================================
+    POCZĄTKOWE GODZINY
+    ==========================================
+    */
 
-
-    form.addEventListener("submit", function(event) {
-
-      event.preventDefault();
-
-      errorMessage.style.display = "none";
-      errorMessage.textContent = "";
-
-
-      const selectedDate = date.value;
-      const selectedTime = time.value;
-      const selectedSpecialist = specialist.value;
-
-
-      if (
-        !service.value ||
-        !selectedDate ||
-        !selectedTime ||
-        !selectedSpecialist ||
-        !nameInput.value ||
-        !phoneInput.value ||
-        !emailInput.value
-      ) {
-        errorMessage.textContent =
-          "Uzupełnij wszystkie pola.";
-
-        errorMessage.style.display = "block";
-        return;
-      }
-
-
-      const reservations = getReservations();
-
-
-      /*
-        Sprawdzamy, czy wybrany termin
-        nie został już zapisany.
-      */
-
-      const alreadyBooked = reservations.some(reservation =>
-        reservation.date === selectedDate &&
-        reservation.time === selectedTime &&
-        reservation.specialist === selectedSpecialist
-      );
-
-
-      if (alreadyBooked) {
-
-        errorMessage.textContent =
-          "Nie udało się zarezerwować wybranego terminu. Wybierz inną godzinę.";
-
-        errorMessage.style.display = "block";
-
-        loadTimes();
-
-        return;
-      }
-
-
-      const newReservation = {
-
-        service: service.value,
-
-        specialist: selectedSpecialist,
-
-        date: selectedDate,
-
-        time: selectedTime,
-
-        name: nameInput.value.trim(),
-
-        phone: phoneInput.value.trim(),
-
-        email: emailInput.value.trim(),
-
-        createdAt: new Date().toISOString()
-
-      };
-
-
-      reservations.push(newReservation);
-
-      saveReservations(reservations);
-
-
-      /*
-        Podziękowanie
-      */
-
-      form.style.display = "none";
-
-      confirmation.style.display = "block";
-
-
-      bookingDetails.innerHTML = `
-
-        <p>
-          <strong>Usługa:</strong>
-          ${newReservation.service}
-        </p>
-
-        <p>
-          <strong>Specjalista:</strong>
-          ${newReservation.specialist}
-        </p>
-
-        <p>
-          <strong>Data:</strong>
-          ${newReservation.date}
-        </p>
-
-        <p>
-          <strong>Godzina:</strong>
-          ${newReservation.time}
-        </p>
-
-        <p>
-          <strong>Imię i nazwisko:</strong>
-          ${newReservation.name}
-        </p>
-
-        <p>
-          <strong>Telefon:</strong>
-          ${newReservation.phone}
-        </p>
-
-        <p>
-          <strong>E-mail:</strong>
-          ${newReservation.email}
-        </p>
-
-      `;
-
-    });
+    updateAvailableTimes();
 
 
     /*
-      Minimalny dzień = dzisiaj
+    ==========================================
+    ODŚWIEŻANIE GODZIN
+    ==========================================
+
+    Co 20 sekund sprawdzamy localStorage,
+    żeby aktualne godziny były odświeżone.
     */
 
-    const today = new Date();
+    setInterval(
+      () => {
 
-    const year = today.getFullYear();
+        if (
+          dateInput.value &&
+          confirmation.style.display !==
+            "block"
+        ) {
 
-    const month = String(
-      today.getMonth() + 1
-    ).padStart(2, "0");
+          updateAvailableTimes();
 
-    const day = String(
-      today.getDate()
-    ).padStart(2, "0");
+        }
 
-    date.min = `${year}-${month}-${day}`;
-
-
-    /*
-      Po wejściu na stronę
-      przygotuj godziny.
-    */
-
-    loadTimes();
+      },
+      20000
+    );
 
   </script>
 
