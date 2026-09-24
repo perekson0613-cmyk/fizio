@@ -203,9 +203,9 @@
       background:
         linear-gradient(
           90deg,
-          rgba(7,21,34,.58) 0%,
-          rgba(7,21,34,.30) 50%,
-          rgba(7,21,34,.12) 100%
+          rgba(7,21,34,.62) 0%,
+          rgba(7,21,34,.34) 50%,
+          rgba(7,21,34,.14) 100%
         );
 
       pointer-events: none;
@@ -343,6 +343,8 @@
     .service-card {
       overflow: hidden;
 
+      position: relative;
+
       background:
         linear-gradient(
           145deg,
@@ -374,24 +376,72 @@
         0 20px 45px rgba(0,0,0,.22);
     }
 
+    /*
+      Płynne przejście zdjęcia
+      w tło karty
+    */
+
+    .service-image-wrapper {
+      position: relative;
+      height: 210px;
+      overflow: hidden;
+    }
+
+    .service-image-wrapper::after {
+      content: "";
+
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+
+      height: 85px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(17,43,61,0),
+          rgba(17,43,61,.92)
+        );
+
+      pointer-events: none;
+      z-index: 2;
+    }
+
     .service-image {
       width: 100%;
-      height: 190px;
+      height: 100%;
 
       object-fit: cover;
 
       display: block;
 
+      filter: saturate(.88);
+
       transition:
-        transform .4s ease;
+        transform .5s ease,
+        filter .5s ease;
     }
 
     .service-card:hover .service-image {
-      transform: scale(1.03);
+      transform: scale(1.04);
+      filter: saturate(1);
     }
 
     .service-content {
+      position: relative;
+      z-index: 3;
+
+      margin-top: -25px;
+
       padding: 22px;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(17,43,61,.75),
+          rgba(17,43,61,.96) 25%
+        );
     }
 
     .service-content h3 {
@@ -745,13 +795,13 @@
     }
 
     /* =========================
-       FOOTER
+       STOPKA
     ========================= */
 
     footer {
       margin-top: 30px;
 
-      padding: 30px 24px;
+      padding: 35px 24px 28px;
 
       border-top:
         1px solid var(--border);
@@ -765,6 +815,39 @@
 
     footer strong {
       color: var(--blue-light);
+    }
+
+    .footer-contact {
+      margin-top: 14px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      color: #91a8b8;
+
+      font-size: 11px;
+      letter-spacing: .2px;
+    }
+
+    .footer-contact a {
+      transition: color .2s ease;
+    }
+
+    .footer-contact a:hover {
+      color: var(--blue-light);
+    }
+
+    .footer-location {
+      color: #91a8b8;
+    }
+
+    .footer-copy {
+      margin-top: 18px;
+
+      color: #718796;
+
+      font-size: 10px;
     }
 
     /* =========================
@@ -934,14 +1017,20 @@
 
     <div class="services">
 
+      <!-- FIZJOTERAPIA -->
+
       <article class="service-card">
 
-        <img
-          class="service-image"
-          src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=85"
-          alt="Fizjoterapia"
-          loading="lazy"
-        >
+        <div class="service-image-wrapper">
+
+          <img
+            class="service-image"
+            src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1000&q=85"
+            alt="Fizjoterapia"
+            loading="lazy"
+          >
+
+        </div>
 
         <div class="service-content">
 
@@ -964,14 +1053,20 @@
       </article>
 
 
+      <!-- MASAŻ RELAKSACYJNY -->
+
       <article class="service-card">
 
-        <img
-          class="service-image"
-          src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=85"
-          alt="Masaż relaksacyjny"
-          loading="lazy"
-        >
+        <div class="service-image-wrapper">
+
+          <img
+            class="service-image"
+            src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=85"
+            alt="Masaż relaksacyjny"
+            loading="lazy"
+          >
+
+        </div>
 
         <div class="service-content">
 
@@ -994,14 +1089,20 @@
       </article>
 
 
+      <!-- MASAŻ POBUDZAJĄCY -->
+
       <article class="service-card">
 
-        <img
-          class="service-image"
-          src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=1000&q=85"
-          alt="Masaż pobudzający"
-          loading="lazy"
-        >
+        <div class="service-image-wrapper">
+
+          <img
+            class="service-image"
+            src="https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=1000&q=85"
+            alt="Masaż pobudzający"
+            loading="lazy"
+          >
+
+        </div>
 
         <div class="service-content">
 
@@ -1024,14 +1125,20 @@
       </article>
 
 
+      <!-- PAKIET PREMIUM -->
+
       <article class="service-card">
 
-        <img
-          class="service-image"
-          src="https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=1000&q=85"
-          alt="Pakiet Premium"
-          loading="lazy"
-        >
+        <div class="service-image-wrapper">
+
+          <img
+            class="service-image"
+            src="https://images.unsplash.com/photo-1552693673-1bf958298935?auto=format&fit=crop&w=1000&q=85"
+            alt="Pakiet Premium"
+            loading="lazy"
+          >
+
+        </div>
 
         <div class="service-content">
 
@@ -1161,10 +1268,7 @@
                   Usługa
                 </label>
 
-                <select
-                  id="service"
-                  required
-                >
+                <select id="service" required>
 
                   <option value="">
                     Wybierz usługę
@@ -1197,10 +1301,7 @@
                   Specjalista
                 </label>
 
-                <select
-                  id="specialist"
-                  required
-                >
+                <select id="specialist" required>
 
                   <option value="Kacper">
                     Kacper
@@ -1232,10 +1333,7 @@
                   Godzina
                 </label>
 
-                <select
-                  id="time"
-                  required
-                >
+                <select id="time" required>
 
                   <option value="">
                     Najpierw wybierz datę
@@ -1311,7 +1409,9 @@
         </div>
 
 
-        <!-- POTWIERDZENIE -->
+        <!-- =========================
+             POTWIERDZENIE
+        ========================= -->
 
         <div
           id="confirmation"
@@ -1359,7 +1459,7 @@
 
 
   <!-- =========================
-       FOOTER
+       STOPKA
   ========================= -->
 
   <footer>
@@ -1367,9 +1467,25 @@
     <strong>FIZIO</strong>
     – Masaż & Fizjoterapia
 
-    <br><br>
+    <div class="footer-contact">
 
-    © 2026 FIZIO. Wszystkie prawa zastrzeżone.
+      <a href="mailto:kacperson.0613@gmail.com">
+        e-mail: kacperson.0613@gmail.com
+      </a>
+
+      <a href="tel:791671346">
+        tel.: 791 671 346
+      </a>
+
+      <span class="footer-location">
+        lokalizacja: Adamów 8
+      </span>
+
+    </div>
+
+    <div class="footer-copy">
+      © 2026 FIZIO. Wszystkie prawa zastrzeżone.
+    </div>
 
   </footer>
 
