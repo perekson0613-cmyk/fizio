@@ -1,1002 +1,661 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- =========================
+     REZERWACJA
+========================= -->
 
-  <title>FIZIO — Masaż i Fizjoterapia</title>
-  <meta
-    name="description"
-    content="FIZIO — masaż i fizjoterapia. Umów wizytę i zadbaj o swoje ciało."
-  >
+<section class="booking" id="rezerwacja">
 
-  <style>
-    :root {
-      --primary: #1677ff;
-      --primary-dark: #075ac9;
-      --secondary: #0f172a;
-      --text: #334155;
-      --muted: #64748b;
-      --light: #f5f9ff;
-      --white: #ffffff;
-      --border: #e2e8f0;
-      --success: #16a34a;
-      --shadow: 0 15px 45px rgba(15, 23, 42, 0.10);
-      --radius: 22px;
-    }
+  <div class="container">
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
+    <div class="section-heading">
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: #fff;
-      line-height: 1.6;
-    }
+      <span>Rezerwacja</span>
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+      <h2>Umów wizytę</h2>
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(1120px, 92%);
-      margin: auto;
-    }
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255,255,255,.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(226,232,240,.8);
-    }
-
-    .nav {
-      min-height: 74px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .logo {
-      font-size: 28px;
-      font-weight: 900;
-      color: var(--secondary);
-      letter-spacing: -1px;
-    }
-
-    .logo span {
-      color: var(--primary);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      list-style: none;
-      font-weight: 700;
-      color: #475569;
-    }
-
-    .nav-links a {
-      transition: .2s;
-    }
-
-    .nav-links a:hover {
-      color: var(--primary);
-    }
-
-    .nav-button {
-      padding: 11px 18px;
-      background: var(--primary);
-      color: white !important;
-      border-radius: 12px;
-    }
-
-    .nav-button:hover {
-      background: var(--primary-dark);
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      min-height: 680px;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      background:
-        linear-gradient(
-          90deg,
-          rgba(3, 18, 42, .88),
-          rgba(3, 18, 42, .62),
-          rgba(3, 18, 42, .25)
-        ),
-        url("https://images.unsplash.com/photo-1556760544-74068565f05c?auto=format&fit=crop&w=1800&q=85")
-        center/cover no-repeat;
-    }
-
-    .hero-content {
-      color: white;
-      max-width: 720px;
-      padding: 80px 0;
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(255,255,255,.15);
-      border: 1px solid rgba(255,255,255,.25);
-      padding: 8px 14px;
-      border-radius: 999px;
-      margin-bottom: 22px;
-      font-weight: 700;
-      backdrop-filter: blur(8px);
-    }
-
-    .hero h1 {
-      font-size: clamp(44px, 7vw, 76px);
-      line-height: 1.02;
-      letter-spacing: -3px;
-      margin-bottom: 25px;
-    }
-
-    .hero h1 span {
-      color: #62b1ff;
-    }
-
-    .hero p {
-      font-size: 20px;
-      max-width: 650px;
-      color: #e2e8f0;
-      margin-bottom: 34px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      padding: 14px 22px;
-      border-radius: 13px;
-      font-weight: 800;
-      border: none;
-      cursor: pointer;
-      transition: .2s;
-      font-size: 16px;
-    }
-
-    .btn-primary {
-      background: var(--primary);
-      color: white;
-    }
-
-    .btn-primary:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-    }
-
-    .btn-light {
-      background: white;
-      color: var(--secondary);
-    }
-
-    .btn-light:hover {
-      transform: translateY(-2px);
-    }
-
-    /* =========================
-       SECTIONS
-    ========================= */
-
-    section {
-      padding: 90px 0;
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 50px;
-    }
-
-    .section-heading span {
-      color: var(--primary);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 14px;
-    }
-
-    .section-heading h2 {
-      color: var(--secondary);
-      font-size: clamp(32px, 5vw, 48px);
-      margin: 8px 0 12px;
-      letter-spacing: -1.5px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    /* =========================
-       SERVICES
-    ========================= */
-
-    .services {
-      background: var(--light);
-    }
-
-    .service-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .service-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: 0 8px 30px rgba(15,23,42,.05);
-      transition: .25s;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .service-card:hover {
-      transform: translateY(-7px);
-      box-shadow: var(--shadow);
-      border-color: #bfdbfe;
-    }
-
-    .service-icon {
-      width: 55px;
-      height: 55px;
-      display: grid;
-      place-items: center;
-      background: #eaf3ff;
-      border-radius: 16px;
-      font-size: 26px;
-      margin-bottom: 20px;
-    }
-
-    .service-card h3 {
-      color: var(--secondary);
-      font-size: 21px;
-      margin-bottom: 10px;
-    }
-
-    .service-card p {
-      color: var(--muted);
-      font-size: 15px;
-      flex: 1;
-    }
-
-    .service-price {
-      margin-top: 22px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
-      color: var(--primary);
-      font-size: 20px;
-      font-weight: 900;
-    }
-
-    .service-time {
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
-      margin-top: 3px;
-    }
-
-    /* =========================
-       WHY US
-    ========================= */
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-    }
-
-    .why-card {
-      padding: 30px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: white;
-    }
-
-    .why-number {
-      font-size: 36px;
-      font-weight: 900;
-      color: #bfdbfe;
-      margin-bottom: 8px;
-    }
-
-    .why-card h3 {
-      color: var(--secondary);
-      margin-bottom: 8px;
-    }
-
-    .why-card p {
-      color: var(--muted);
-    }
-
-    /* =========================
-       BOOKING
-    ========================= */
-
-    .booking {
-      background: var(--light);
-    }
-
-    .booking-wrapper {
-      max-width: 850px;
-      margin: auto;
-      background: white;
-      padding: 40px;
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-
-    .form-group.full {
-      grid-column: 1 / -1;
-    }
-
-    label {
-      font-weight: 800;
-      color: var(--secondary);
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 14px 15px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      font-size: 16px;
-      outline: none;
-      background: white;
-      color: var(--text);
-      transition: .2s;
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(22,119,255,.1);
-    }
-
-    textarea {
-      min-height: 110px;
-      resize: vertical;
-    }
-
-    .selected-info {
-      margin-top: 20px;
-      padding: 18px;
-      background: #eff6ff;
-      border-radius: 14px;
-      color: #1e40af;
-      display: none;
-    }
-
-    .form-submit {
-      margin-top: 25px;
-      width: 100%;
-    }
-
-    /* =========================
-       CONFIRMATION
-    ========================= */
-
-    .confirmation {
-      display: none;
-      margin-top: 25px;
-      padding: 25px;
-      border-radius: 18px;
-      background: #f0fdf4;
-      border: 1px solid #bbf7d0;
-    }
-
-    .confirmation h3 {
-      color: var(--success);
-      margin-bottom: 10px;
-    }
-
-    .confirmation p {
-      color: #166534;
-    }
-
-    .confirmation-details {
-      margin-top: 15px;
-      padding: 15px;
-      background: white;
-      border-radius: 12px;
-      border: 1px solid #dcfce7;
-    }
-
-    /* =========================
-       CONTACT
-    ========================= */
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-    }
-
-    .contact-card {
-      padding: 35px;
-      border-radius: var(--radius);
-      background: var(--secondary);
-      color: white;
-    }
-
-    .contact-card h3 {
-      font-size: 27px;
-      margin-bottom: 20px;
-    }
-
-    .contact-item {
-      padding: 15px 0;
-      border-bottom: 1px solid rgba(255,255,255,.12);
-    }
-
-    .contact-item:last-child {
-      border-bottom: none;
-    }
-
-    .contact-label {
-      display: block;
-      color: #94a3b8;
-      font-size: 13px;
-      margin-bottom: 3px;
-    }
-
-    .contact-value {
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .contact-value:hover {
-      color: #60a5fa;
-    }
-
-    .contact-info {
-      padding: 35px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-    }
-
-    .contact-info h3 {
-      color: var(--secondary);
-      font-size: 27px;
-      margin-bottom: 15px;
-    }
-
-    .contact-info p {
-      color: var(--muted);
-      margin-bottom: 15px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-      background: #020617;
-      color: #94a3b8;
-      padding: 30px 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .footer-logo {
-      color: white;
-      font-size: 23px;
-      font-weight: 900;
-    }
-
-    .footer-logo span {
-      color: #60a5fa;
-    }
-
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 900px) {
-      .service-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .why-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 700px) {
-      .nav {
-        min-height: 65px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        min-height: 600px;
-      }
-
-      .hero h1 {
-        letter-spacing: -2px;
-      }
-
-      .hero p {
-        font-size: 17px;
-      }
-
-      .form-grid,
-      .contact-grid,
-      .service-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .booking-wrapper {
-        padding: 25px 20px;
-      }
-
-      .footer-inner {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      section {
-        padding: 70px 0;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- =========================
-       HEADER
-  ========================= -->
-
-  <header>
-    <div class="container nav">
-
-      <a href="#start" class="logo">
-        FI<span>ZIO</span>
-      </a>
-
-      <ul class="nav-links">
-        <li><a href="#uslugi">Usługi</a></li>
-        <li><a href="#dlaczego">Dlaczego my?</a></li>
-        <li><a href="#rezerwacja">Rezerwacja</a></li>
-        <li><a href="#kontakt">Kontakt</a></li>
-        <li>
-          <a href="#rezerwacja" class="nav-button">
-            Umów wizytę
-          </a>
-        </li>
-      </ul>
+      <p>
+        Wybierz usługę, dzień oraz dogodną godzinę.
+      </p>
 
     </div>
-  </header>
 
-  <main>
+    <div class="booking-wrapper">
 
-    <!-- =========================
-         HERO
-    ========================= -->
+      <form id="bookingForm">
 
-    <section class="hero" id="start">
+        <div class="form-grid">
 
-      <div class="container">
-        <div class="hero-content">
+          <div class="form-group">
+            <label for="name">
+              Imię i nazwisko
+            </label>
 
-          <div class="badge">
-            Profesjonalna opieka nad Twoim ciałem
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Np. Jan Kowalski"
+              required
+            >
           </div>
 
-          <h1>
-            Zadbaj o swoje ciało z <span>FIZIO</span>
-          </h1>
+          <div class="form-group">
+            <label for="phone">
+              Numer telefonu
+            </label>
 
-          <p>
-            Masaż i fizjoterapia dopasowane do Twoich potrzeb.
-            Umów wizytę i poświęć chwilę na regenerację.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#rezerwacja" class="btn btn-primary">
-              Umów wizytę
-            </a>
-
-            <a href="#uslugi" class="btn btn-light">
-              Zobacz usługi
-            </a>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="Np. 791 671 346"
+              required
+            >
           </div>
 
-        </div>
-      </div>
+          <div class="form-group">
+            <label for="email">
+              E-mail
+            </label>
 
-    </section>
-
-    <!-- =========================
-         SERVICES
-    ========================= -->
-
-    <section class="services" id="uslugi">
-
-      <div class="container">
-
-        <div class="section-heading">
-          <span>Oferta</span>
-
-          <h2>Nasze usługi</h2>
-
-          <p>
-            Wybierz usługę dopasowaną do tego, czego aktualnie potrzebujesz.
-          </p>
-        </div>
-
-        <div class="service-grid">
-
-          <!-- FIZJOTERAPIA -->
-
-          <article class="service-card">
-
-            <div class="service-icon">
-              🩺
-            </div>
-
-            <h3>Fizjoterapia</h3>
-
-            <p>
-              Indywidualna praca ukierunkowana na poprawę sprawności
-              i lepsze funkcjonowanie ciała.
-            </p>
-
-            <div class="service-price">
-              6 zł
-            </div>
-
-            <div class="service-time">
-              20 minut
-            </div>
-
-          </article>
-
-          <!-- MASAŻ RELAKSACYJNY -->
-
-          <article class="service-card">
-
-            <div class="service-icon">
-              🌿
-            </div>
-
-            <h3>Masaż relaksacyjny</h3>
-
-            <p>
-              Chwila odprężenia i relaksu po intensywnym dniu.
-            </p>
-
-            <div class="service-price">
-              5 zł
-            </div>
-
-            <div class="service-time">
-              20 minut
-            </div>
-
-          </article>
-
-          <!-- MASAŻ POBUDZAJĄCY -->
-
-          <article class="service-card">
-
-            <div class="service-icon">
-              ⚡
-            </div>
-
-            <h3>Masaż pobudzający</h3>
-
-            <p>
-              Dynamiczna forma masażu dla osób, które chcą się
-              rozbudzić i poczuć więcej energii.
-            </p>
-
-            <div class="service-price">
-              5 zł
-            </div>
-
-            <div class="service-time">
-              20 minut
-            </div>
-
-          </article>
-
-          <!-- ZESTAW PREMIUM -->
-
-          <article class="service-card">
-
-            <div class="service-icon">
-              ⭐
-            </div>
-
-            <h3>Zestaw Premium</h3>
-
-            <p>
-              Rozszerzona godzinna usługa dla osób, które chcą
-              przeznaczyć więcej czasu na kompleksową wizytę.
-            </p>
-
-            <div class="service-price">
-              100 zł
-            </div>
-
-            <div class="service-time">
-              60 minut
-            </div>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-    <!-- =========================
-         WHY US
-    ========================= -->
-
-    <section id="dlaczego">
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <span>FIZIO</span>
-
-          <h2>Dlaczego warto?</h2>
-
-          <p>
-            Proste podejście, wygodna rezerwacja i oferta dopasowana
-            do różnych potrzeb.
-          </p>
-
-        </div>
-
-        <div class="why-grid">
-
-          <div class="why-card">
-            <div class="why-number">01</div>
-
-            <h3>Indywidualne podejście</h3>
-
-            <p>
-              Każda wizyta może być dopasowana do Twoich aktualnych potrzeb.
-            </p>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="twoj@email.pl"
+              required
+            >
           </div>
 
-          <div class="why-card">
-            <div class="why-number">02</div>
+          <div class="form-group">
 
-            <h3>Prosta rezerwacja</h3>
+            <label for="service">
+              Wybierz usługę
+            </label>
 
-            <p>
-              Wybierz usługę, dzień i godzinę, a następnie prześlij formularz.
-            </p>
+            <select id="service" required>
+
+              <option value="">
+                Wybierz usługę
+              </option>
+
+              <option
+                value="Fizjoterapia"
+                data-price="6"
+                data-duration="20 min"
+              >
+                Fizjoterapia — 20 min / 6 zł
+              </option>
+
+              <option
+                value="Masaż relaksacyjny"
+                data-price="5"
+                data-duration="20 min"
+              >
+                Masaż relaksacyjny — 20 min / 5 zł
+              </option>
+
+              <option
+                value="Masaż pobudzający"
+                data-price="5"
+                data-duration="20 min"
+              >
+                Masaż pobudzający — 20 min / 5 zł
+              </option>
+
+              <option
+                value="Zestaw Premium"
+                data-price="100"
+                data-duration="60 min"
+              >
+                Zestaw Premium — 60 min / 100 zł
+              </option>
+
+            </select>
+
           </div>
 
-          <div class="why-card">
-            <div class="why-number">03</div>
+          <div class="form-group">
 
-            <h3>Wygodna lokalizacja</h3>
+            <label for="date">
+              Data wizyty
+            </label>
 
-            <p>
-              FIZIO znajduje się pod adresem Adamów 8.
-            </p>
+            <input
+              type="date"
+              id="date"
+              required
+            >
+
+          </div>
+
+          <div class="form-group">
+
+            <label for="time">
+              Godzina wizyty
+            </label>
+
+            <select id="time" required>
+
+              <option value="">
+                Wybierz godzinę
+              </option>
+
+            </select>
+
+          </div>
+
+          <div class="form-group full">
+
+            <label for="message">
+              Dodatkowa wiadomość
+            </label>
+
+            <textarea
+              id="message"
+              placeholder="Opcjonalnie..."
+            ></textarea>
+
           </div>
 
         </div>
+
+        <div
+          class="selected-info"
+          id="selectedInfo"
+        ></div>
+
+        <button
+          type="submit"
+          class="btn btn-primary form-submit"
+        >
+          Umów wizytę
+        </button>
+
+      </form>
+
+
+      <!-- =========================
+           PODZIĘKOWANIE
+      ========================= -->
+
+      <div
+        class="confirmation"
+        id="confirmation"
+      >
+
+        <div style="font-size: 50px; margin-bottom: 10px;">
+          ✓
+        </div>
+
+        <h3>
+          Dziękujemy za umówienie wizyty!
+        </h3>
+
+        <p>
+          Twoje dane rezerwacji zostały przygotowane.
+        </p>
+
+        <p style="margin-top: 10px;">
+          <strong>
+            Prosimy wysłać potwierdzenie do specjalisty.
+          </strong>
+        </p>
+
+        <div
+          class="confirmation-details"
+          id="confirmationDetails"
+        ></div>
+
+        <a
+          href="#"
+          id="sendConfirmation"
+          class="btn btn-primary"
+          style="margin-top: 20px; width: 100%;"
+        >
+          ✉ Wyślij potwierdzenie do specjalisty
+        </a>
+
+        <button
+          type="button"
+          id="newBooking"
+          class="btn"
+          style="
+            margin-top: 12px;
+            width: 100%;
+            background: #f1f5f9;
+            color: #0f172a;
+          "
+        >
+          Umów kolejną wizytę
+        </button>
 
       </div>
 
-    </section>
+    </div>
 
-    <!-- =========================
-         BOOKING
-    ========================= -->
+  </div>
 
-    <section class="booking" id="rezerwacja">
+</section>
 
-      <div class="container">
 
-        <div class="section-heading">
+<script>
 
-          <span>Rezerwacja</span>
+  /* =========================
+     ELEMENTY
+  ========================= */
 
-          <h2>Umów swoją wizytę</h2>
+  const bookingForm =
+    document.getElementById("bookingForm");
 
-          <p>
-            Wypełnij formularz, aby przygotować rezerwację.
-          </p>
+  const serviceSelect =
+    document.getElementById("service");
 
-        </div>
+  const dateInput =
+    document.getElementById("date");
 
-        <div class="booking-wrapper">
+  const timeSelect =
+    document.getElementById("time");
 
-          <form id="bookingForm">
+  const selectedInfo =
+    document.getElementById("selectedInfo");
 
-            <div class="form-grid">
+  const confirmation =
+    document.getElementById("confirmation");
 
-              <div class="form-group">
-                <label for="name">
-                  Imię i nazwisko
-                </label>
+  const confirmationDetails =
+    document.getElementById("confirmationDetails");
 
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Np. Jan Kowalski"
-                  required
-                >
-              </div>
+  const sendConfirmation =
+    document.getElementById("sendConfirmation");
 
-              <div class="form-group">
-                <label for="phone">
-                  Numer telefonu
-                </label>
+  const newBooking =
+    document.getElementById("newBooking");
 
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  placeholder="Np. 123 456 789"
-                  required
-                >
-              </div>
 
-              <div class="form-group">
-                <label for="email">
-                  E-mail
-                </label>
+  /* =========================
+     DATA OD DZISIAJ
+  ========================= */
 
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="twoj@email.pl"
-                  required
-                >
-              </div>
+  const today = new Date();
 
-              <div class="form-group">
-                <label for="service">
-                  Usługa
-                </label>
+  const todayString =
+    today.getFullYear() +
+    "-" +
+    String(today.getMonth() + 1).padStart(2, "0") +
+    "-" +
+    String(today.getDate()).padStart(2, "0");
 
-                <select id="service" name="service" required>
+  dateInput.min = todayString;
 
-                  <option value="">
-                    Wybierz usługę
-                  </option>
 
-                  <option
-                    value="Fizjoterapia"
-                    data-price="6"
-                    data-duration="20 min"
-                  >
-                    Fizjoterapia — 20 min / 6 zł
-                  </option>
+  /* =========================
+     GODZINY
+     15:00 → 21:00
+     CO 20 MINUT
+  ========================= */
 
-                  <option
-                    value="Masaż relaksacyjny"
-                    data-price="5"
-                    data-duration="20 min"
-                  >
-                    Masaż relaksacyjny — 20 min / 5 zł
-                  </option>
+  function createTimeSlots() {
 
-                  <option
-                    value="Masaż pobudzający"
-                    data-price="5"
-                    data-duration="20 min"
-                  >
-                    Masaż pobudzający — 20 min / 5 zł
-                  </option>
+    timeSelect.innerHTML = `
+      <option value="">
+        Wybierz godzinę
+      </option>
+    `;
 
-                  <option
-                    value="Zestaw Premium"
-                    data-price="100"
-                    data-duration="60 min"
-                  >
-                    Zestaw Premium — 60 min / 100 zł
-                  </option>
+    const startHour = 15;
+    const endHour = 21;
 
-                </select>
-              </div>
+    for (
+      let hour = startHour;
+      hour <= endHour;
+      hour++
+    ) {
 
-              <div class="form-group">
-                <label for="date">
-                  Data wizyty
-                </label>
+      for (
+        let minute = 0;
+        minute < 60;
+        minute += 20
+      ) {
 
-                <input
-                  type="date"
-                  id="date"
-                  name="date"
-                  required
-                >
-              </div>
+        /*
+          Dla godziny 21 dodajemy tylko 21:00.
+        */
 
-              <div class="form-group">
-                <label for="time">
-                  Godzina
-                </label>
+        if (
+          hour === endHour &&
+          minute > 0
+        ) {
+          continue;
+        }
 
-                <input
-                  type="time"
-                  id="time"
-                  name="time"
-                  required
-                >
-              </div>
+        const hourText =
+          String(hour).padStart(2, "0");
 
-              <div class="form-group full">
+        const minuteText =
+          String(minute).padStart(2, "0");
 
-                <label for="message">
-                  Dodatkowa wiadomość
-                </label>
+        const time =
+          `${hourText}:${minuteText}`;
 
-                
+        const option =
+          document.createElement("option");
+
+        option.value = time;
+        option.textContent = time;
+
+        timeSelect.appendChild(option);
+      }
+    }
+  }
+
+  createTimeSlots();
+
+
+  /* =========================
+     INFORMACJA O USŁUDZE
+  ========================= */
+
+  serviceSelect.addEventListener(
+    "change",
+    function () {
+
+      const selected =
+        this.options[this.selectedIndex];
+
+      if (!selected.value) {
+
+        selectedInfo.style.display = "none";
+        selectedInfo.textContent = "";
+
+        return;
+      }
+
+      const price =
+        selected.dataset.price;
+
+      const duration =
+        selected.dataset.duration;
+
+      selectedInfo.innerHTML = `
+        <strong>${selected.value}</strong><br>
+        Czas wizyty: ${duration}<br>
+        Cena: ${price} zł
+      `;
+
+      selectedInfo.style.display = "block";
+    }
+  );
+
+
+  /* =========================
+     REZERWACJA
+  ========================= */
+
+  bookingForm.addEventListener(
+    "submit",
+    function (event) {
+
+      event.preventDefault();
+
+      const name =
+        document.getElementById("name")
+          .value
+          .trim();
+
+      const phone =
+        document.getElementById("phone")
+          .value
+          .trim();
+
+      const email =
+        document.getElementById("email")
+          .value
+          .trim();
+
+      const service =
+        serviceSelect.value;
+
+      const date =
+        dateInput.value;
+
+      const time =
+        timeSelect.value;
+
+      const message =
+        document.getElementById("message")
+          .value
+          .trim();
+
+
+      if (
+        !name ||
+        !phone ||
+        !email ||
+        !service ||
+        !date ||
+        !time
+      ) {
+
+        alert(
+          "Uzupełnij wszystkie wymagane pola."
+        );
+
+        return;
+      }
+
+
+      const selected =
+        serviceSelect.options[
+          serviceSelect.selectedIndex
+        ];
+
+      const price =
+        selected.dataset.price;
+
+      const duration =
+        selected.dataset.duration;
+
+
+      const formattedDate =
+        new Date(
+          date + "T00:00:00"
+        ).toLocaleDateString(
+          "pl-PL",
+          {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric"
+          }
+        );
+
+
+      /* =========================
+         SZCZEGÓŁY REZERWACJI
+      ========================= */
+
+      confirmationDetails.innerHTML = "";
+
+
+      const details = [
+        ["Imię i nazwisko", name],
+        ["Telefon", phone],
+        ["E-mail", email],
+        ["Usługa", service],
+        ["Czas trwania", duration],
+        ["Cena", price + " zł"],
+        ["Data", formattedDate],
+        ["Godzina", time]
+      ];
+
+
+      details.forEach(
+        function ([label, value]) {
+
+          const row =
+            document.createElement("div");
+
+          row.style.marginBottom = "8px";
+
+          const strong =
+            document.createElement("strong");
+
+          strong.textContent =
+            label + ": ";
+
+          row.appendChild(strong);
+
+          row.appendChild(
+            document.createTextNode(value)
+          );
+
+          confirmationDetails.appendChild(row);
+        }
+      );
+
+
+      if (message) {
+
+        const row =
+          document.createElement("div");
+
+        row.style.marginTop = "12px";
+
+        const strong =
+          document.createElement("strong");
+
+        strong.textContent =
+          "Wiadomość: ";
+
+        row.appendChild(strong);
+
+        row.appendChild(
+          document.createTextNode(message)
+        );
+
+        confirmationDetails.appendChild(row);
+      }
+
+
+      /* =========================
+         E-MAIL DO SPECJALISTY
+      ========================= */
+
+      const subject =
+        encodeURIComponent(
+          "Potwierdzenie wizyty — FIZIO"
+        );
+
+
+      let emailBody =
+        "Dzień dobry,%0D%0A%0D%0A" +
+
+        "potwierdzam umówienie wizyty w FIZIO.%0D%0A%0D%0A" +
+
+        "Imię i nazwisko: " +
+        encodeURIComponent(name) +
+
+        "%0D%0A" +
+
+        "Telefon: " +
+        encodeURIComponent(phone) +
+
+        "%0D%0A" +
+
+        "E-mail: " +
+        encodeURIComponent(email) +
+
+        "%0D%0A" +
+
+        "Usługa: " +
+        encodeURIComponent(service) +
+
+        "%0D%0A" +
+
+        "Czas trwania: " +
+        encodeURIComponent(duration) +
+
+        "%0D%0A" +
+
+        "Cena: " +
+        encodeURIComponent(price + " zł") +
+
+        "%0D%0A" +
+
+        "Data: " +
+        encodeURIComponent(formattedDate) +
+
+        "%0D%0A" +
+
+        "Godzina: " +
+        encodeURIComponent(time);
+
+
+      if (message) {
+
+        emailBody +=
+          "%0D%0A%0D%0ADodatkowa wiadomość: " +
+          encodeURIComponent(message);
+      }
+
+
+      emailBody +=
+        "%0D%0A%0D%0APozdrawiam.";
+
+
+      sendConfirmation.href =
+        "mailto:kacperson.0613@gmail.com" +
+        "?subject=" +
+        subject +
+        "&body=" +
+        emailBody;
+
+
+      /* =========================
+         POKAŻ PODZIĘKOWANIE
+      ========================= */
+
+      bookingForm.style.display = "none";
+
+      confirmation.style.display = "block";
+
+      confirmation.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+
+    }
+  );
+
+
+  /* =========================
+     NOWA REZERWACJA
+  ========================= */
+
+  newBooking.addEventListener(
+    "click",
+    function () {
+
+      bookingForm.reset();
+
+      selectedInfo.style.display = "none";
+
+      selectedInfo.textContent = "";
+
+      confirmation.style.display = "none";
+
+      bookingForm.style.display = "block";
+
+      window.location.hash = "rezerwacja";
+
+      window.scrollTo({
+        top:
+          document.getElementById(
+            "rezerwacja"
+          ).offsetTop - 80,
+
+        behavior: "smooth"
+      });
+    }
+  );
+
+</script>
