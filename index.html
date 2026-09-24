@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="FIZIO – profesjonalny masaż i fizjoterapia. Umów wizytę online."
+    content="FIZIO – masaż i fizjoterapia. Umów swoją wizytę online."
   >
 
   <style>
@@ -19,20 +19,21 @@
     }
 
     :root {
-      --bg: #071522;
-      --bg2: #0b1f32;
-      --card: #10283b;
-      --card2: #14364d;
+      --bg: #0a1825;
+      --bg2: #0d2233;
 
-      --blue: #3ea6ff;
-      --blue2: #1976d2;
-      --blue-light: #5db7ff;
+      --card: #112b3d;
+      --card2: #16364a;
 
-      --text: #f4f9ff;
-      --muted: #a7bacb;
+      --blue: #65b7f5;
+      --blue2: #328ed0;
+      --blue-light: #8acbfa;
 
-      --border: rgba(255,255,255,.10);
-      --shadow: 0 20px 50px rgba(0,0,0,.30);
+      --text: #f2f8fc;
+      --muted: #a9bbc8;
+
+      --border: rgba(255,255,255,.08);
+      --shadow: 0 20px 50px rgba(0,0,0,.22);
     }
 
     html {
@@ -41,17 +42,25 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
+
       background:
         radial-gradient(
-          circle at top right,
-          rgba(62,166,255,.14),
+          circle at 20% 10%,
+          rgba(62,166,255,.07),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 85% 80%,
+          rgba(25,118,210,.06),
           transparent 32%
         ),
         linear-gradient(
           135deg,
-          var(--bg),
-          var(--bg2)
+          #0a1825,
+          #0d2233 55%,
+          #0b1d2c
         );
+
       color: var(--text);
       min-height: 100vh;
       line-height: 1.5;
@@ -69,7 +78,7 @@
     }
 
     /* =========================
-       NAVIGACJA
+       MENU
     ========================= */
 
     header {
@@ -77,11 +86,11 @@
       top: 0;
       z-index: 1000;
 
-      background: rgba(7,21,34,.84);
+      background: rgba(10,24,37,.82);
       backdrop-filter: blur(18px);
 
       border-bottom:
-        1px solid rgba(255,255,255,.08);
+        1px solid rgba(255,255,255,.06);
     }
 
     .nav {
@@ -107,8 +116,8 @@
       color: var(--blue);
 
       text-shadow:
-        0 0 12px rgba(62,166,255,.35),
-        0 0 28px rgba(62,166,255,.15);
+        0 0 12px rgba(101,183,245,.25),
+        0 0 28px rgba(101,183,245,.10);
     }
 
     .logo small {
@@ -128,7 +137,7 @@
     }
 
     nav a {
-      color: #dcecff;
+      color: #d7e7f2;
       font-size: 14px;
       font-weight: 600;
 
@@ -161,24 +170,24 @@
       padding: 60px;
 
       border:
-        1px solid rgba(255,255,255,.12);
+        1px solid rgba(255,255,255,.10);
 
       border-radius: 30px;
 
       background:
         linear-gradient(
           90deg,
-          rgba(3,16,29,.55),
-          rgba(3,16,29,.25)
+          rgba(7,21,34,.72),
+          rgba(7,21,34,.48)
         ),
-        url("https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1800&q=90");
+        url("https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&fit=crop&w=1800&q=85");
 
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
 
       box-shadow:
-        0 25px 70px rgba(0,0,0,.40);
+        0 20px 55px rgba(0,0,0,.25);
 
       display: flex;
       flex-direction: column;
@@ -194,9 +203,9 @@
       background:
         linear-gradient(
           90deg,
-          rgba(3,16,29,.65) 0%,
-          rgba(3,16,29,.38) 42%,
-          rgba(3,16,29,.12) 100%
+          rgba(7,21,34,.58) 0%,
+          rgba(7,21,34,.30) 50%,
+          rgba(7,21,34,.12) 100%
         );
 
       pointer-events: none;
@@ -211,8 +220,8 @@
       background:
         radial-gradient(
           circle at 80% 40%,
-          rgba(62,166,255,.13),
-          transparent 32%
+          rgba(101,183,245,.09),
+          transparent 35%
         );
 
       pointer-events: none;
@@ -235,12 +244,12 @@
       border-radius: 999px;
 
       background:
-        rgba(62,166,255,.13);
+        rgba(101,183,245,.10);
 
       color: var(--blue-light);
 
       border:
-        1px solid rgba(62,166,255,.30);
+        1px solid rgba(101,183,245,.24);
 
       font-size: 12px;
       font-weight: 800;
@@ -257,7 +266,7 @@
       background: var(--blue-light);
 
       box-shadow:
-        0 0 14px rgba(93,183,255,.8);
+        0 0 12px rgba(138,203,250,.55);
     }
 
     h1 {
@@ -273,14 +282,14 @@
       color: #ffffff;
 
       text-shadow:
-        0 5px 25px rgba(0,0,0,.35);
+        0 5px 25px rgba(0,0,0,.30);
     }
 
     h1 span {
       color: var(--blue-light);
 
       text-shadow:
-        0 0 25px rgba(62,166,255,.35);
+        0 0 25px rgba(101,183,245,.25);
     }
 
     .hero-text {
@@ -288,13 +297,13 @@
 
       margin-top: 23px;
 
-      color: #d3e3ef;
+      color: #d2e1eb;
 
       font-size: 16px;
       line-height: 1.7;
 
       text-shadow:
-        0 2px 10px rgba(0,0,0,.45);
+        0 2px 10px rgba(0,0,0,.35);
     }
 
     /* =========================
@@ -327,9 +336,7 @@
 
     .services {
       display: grid;
-      grid-template-columns:
-        repeat(4, 1fr);
-
+      grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     }
 
@@ -339,8 +346,8 @@
       background:
         linear-gradient(
           145deg,
-          var(--card),
-          var(--card2)
+          rgba(17,43,61,.92),
+          rgba(22,54,74,.88)
         );
 
       border:
@@ -349,7 +356,7 @@
       border-radius: 22px;
 
       box-shadow:
-        0 12px 35px rgba(0,0,0,.18);
+        0 12px 35px rgba(0,0,0,.16);
 
       transition:
         transform .25s ease,
@@ -358,13 +365,13 @@
     }
 
     .service-card:hover {
-      transform: translateY(-7px);
+      transform: translateY(-5px);
 
       border-color:
-        rgba(62,166,255,.40);
+        rgba(101,183,245,.28);
 
       box-shadow:
-        0 20px 45px rgba(0,0,0,.28);
+        0 20px 45px rgba(0,0,0,.22);
     }
 
     .service-image {
@@ -380,7 +387,7 @@
     }
 
     .service-card:hover .service-image {
-      transform: scale(1.04);
+      transform: scale(1.03);
     }
 
     .service-content {
@@ -433,8 +440,8 @@
       background:
         linear-gradient(
           145deg,
-          rgba(16,40,59,.90),
-          rgba(20,54,77,.70)
+          rgba(17,43,61,.88),
+          rgba(22,54,74,.72)
         );
 
       box-shadow: var(--shadow);
@@ -466,7 +473,7 @@
       border-radius: 16px;
 
       background:
-        rgba(255,255,255,.025);
+        rgba(255,255,255,.018);
     }
 
     .highlight strong {
@@ -500,8 +507,8 @@
       background:
         linear-gradient(
           145deg,
-          var(--card),
-          var(--card2)
+          rgba(17,43,61,.94),
+          rgba(22,54,74,.88)
         );
 
       box-shadow: var(--shadow);
@@ -512,16 +519,14 @@
       margin-bottom: 8px;
     }
 
-    .booking-card > p {
+    .booking-card > div > p {
       color: var(--muted);
       margin-bottom: 25px;
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns:
-        repeat(2, 1fr);
-
+      grid-template-columns: repeat(2, 1fr);
       gap: 18px;
     }
 
@@ -536,7 +541,7 @@
     }
 
     label {
-      color: #dbeaf5;
+      color: #dbe8f0;
       font-size: 13px;
       font-weight: 700;
     }
@@ -550,10 +555,10 @@
       border-radius: 12px;
 
       border:
-        1px solid rgba(255,255,255,.10);
+        1px solid rgba(255,255,255,.09);
 
       background:
-        rgba(4,17,29,.80);
+        rgba(7,21,34,.72);
 
       color: white;
 
@@ -570,11 +575,11 @@
 
       box-shadow:
         0 0 0 3px
-        rgba(62,166,255,.12);
+        rgba(101,183,245,.10);
     }
 
     option {
-      background: #0b1f32;
+      background: #10283b;
       color: white;
     }
 
@@ -591,8 +596,8 @@
       background:
         linear-gradient(
           135deg,
-          #3ea6ff,
-          #1976d2
+          #65b7f5,
+          #328ed0
         );
 
       color: white;
@@ -603,8 +608,8 @@
       cursor: pointer;
 
       box-shadow:
-        0 10px 30px
-        rgba(25,118,210,.25);
+        0 10px 25px
+        rgba(50,142,208,.20);
 
       transition:
         transform .2s ease,
@@ -615,11 +620,11 @@
     .submit-button:hover {
       transform: translateY(-2px);
 
-      filter: brightness(1.08);
+      filter: brightness(1.05);
 
       box-shadow:
-        0 15px 35px
-        rgba(25,118,210,.35);
+        0 15px 30px
+        rgba(50,142,208,.28);
     }
 
     .submit-button:active {
@@ -632,9 +637,7 @@
 
     .confirmation {
       display: none;
-
       text-align: center;
-
       padding: 35px 20px;
     }
 
@@ -651,19 +654,19 @@
       border-radius: 50%;
 
       background:
-        rgba(62,166,255,.12);
+        rgba(101,183,245,.10);
 
       border:
         1px solid
-        rgba(62,166,255,.30);
+        rgba(101,183,245,.25);
 
       color: var(--blue-light);
 
       font-size: 35px;
 
       box-shadow:
-        0 0 35px
-        rgba(62,166,255,.12);
+        0 0 30px
+        rgba(101,183,245,.08);
     }
 
     .confirmation h2 {
@@ -688,7 +691,7 @@
       border-radius: 16px;
 
       background:
-        rgba(255,255,255,.025);
+        rgba(255,255,255,.018);
 
       text-align: left;
     }
@@ -698,7 +701,7 @@
 
       border-bottom:
         1px solid
-        rgba(255,255,255,.06);
+        rgba(255,255,255,.05);
 
       color: var(--muted);
     }
@@ -723,19 +726,22 @@
       background:
         linear-gradient(
           135deg,
-          #3ea6ff,
-          #1976d2
+          #65b7f5,
+          #328ed0
         );
 
       color: white;
 
       font-weight: 800;
 
-      transition: transform .2s ease;
+      transition:
+        transform .2s ease,
+        filter .2s ease;
     }
 
     .mail-button:hover {
       transform: translateY(-2px);
+      filter: brightness(1.05);
     }
 
     /* =========================
@@ -775,7 +781,6 @@
       .about-box {
         grid-template-columns: 1fr;
       }
-
     }
 
     @media (max-width: 700px) {
@@ -795,8 +800,7 @@
 
         border-radius: 22px;
 
-        background-position:
-          62% center;
+        background-position: 60% center;
       }
 
       h1 {
@@ -827,7 +831,6 @@
       .section {
         padding: 50px 20px;
       }
-
     }
 
     @media (max-width: 450px) {
@@ -853,7 +856,6 @@
       .about-box h2 {
         font-size: 29px;
       }
-
     }
   </style>
 </head>
@@ -932,8 +934,6 @@
 
     <div class="services">
 
-      <!-- Fizjoterapia -->
-
       <article class="service-card">
 
         <img
@@ -963,8 +963,6 @@
 
       </article>
 
-
-      <!-- Masaż relaksacyjny -->
 
       <article class="service-card">
 
@@ -996,8 +994,6 @@
       </article>
 
 
-      <!-- Masaż pobudzający -->
-
       <article class="service-card">
 
         <img
@@ -1027,8 +1023,6 @@
 
       </article>
 
-
-      <!-- Premium -->
 
       <article class="service-card">
 
@@ -1161,9 +1155,6 @@
 
             <div class="form-grid">
 
-
-              <!-- Usługa -->
-
               <div class="form-group full">
 
                 <label for="service">
@@ -1200,8 +1191,6 @@
               </div>
 
 
-              <!-- Specjalista -->
-
               <div class="form-group full">
 
                 <label for="specialist">
@@ -1222,8 +1211,6 @@
               </div>
 
 
-              <!-- Data -->
-
               <div class="form-group">
 
                 <label for="date">
@@ -1238,8 +1225,6 @@
 
               </div>
 
-
-              <!-- Godzina -->
 
               <div class="form-group">
 
@@ -1261,8 +1246,6 @@
               </div>
 
 
-              <!-- Imię -->
-
               <div class="form-group">
 
                 <label for="name">
@@ -1280,8 +1263,6 @@
               </div>
 
 
-              <!-- Telefon -->
-
               <div class="form-group">
 
                 <label for="phone">
@@ -1298,8 +1279,6 @@
 
               </div>
 
-
-              <!-- Email -->
 
               <div class="form-group full">
 
@@ -1332,9 +1311,7 @@
         </div>
 
 
-        <!-- =========================
-             POTWIERDZENIE
-        ========================= -->
+        <!-- POTWIERDZENIE -->
 
         <div
           id="confirmation"
@@ -1403,15 +1380,6 @@
 
   <script>
 
-    /*
-    ==========================================
-    GODZINY REZERWACJI
-    ==========================================
-
-    Od 15:00 do 21:00 co 20 minut.
-    O 21:00 jest ostatni dostępny termin.
-    */
-
     const availableTimes = [];
 
     for (
@@ -1448,12 +1416,6 @@
     }
 
 
-    /*
-    ==========================================
-    ELEMENTY
-    ==========================================
-    */
-
     const form =
       document.getElementById(
         "bookingForm"
@@ -1485,12 +1447,6 @@
       );
 
 
-    /*
-    ==========================================
-    MINIMALNA DATA
-    ==========================================
-    */
-
     const today =
       new Date();
 
@@ -1513,12 +1469,6 @@
     dateInput.min =
       todayString;
 
-
-    /*
-    ==========================================
-    LOCAL STORAGE
-    ==========================================
-    */
 
     function getReservations() {
 
@@ -1552,12 +1502,6 @@
 
     }
 
-
-    /*
-    ==========================================
-    AKTUALIZACJA GODZIN
-    ==========================================
-    */
 
     function updateAvailableTimes() {
 
@@ -1669,23 +1613,11 @@
     }
 
 
-    /*
-    ==========================================
-    DATA
-    ==========================================
-    */
-
     dateInput.addEventListener(
       "change",
       updateAvailableTimes
     );
 
-
-    /*
-    ==========================================
-    REZERWACJA
-    ==========================================
-    */
 
     form.addEventListener(
       "submit",
@@ -1745,12 +1677,6 @@
         }
 
 
-        /*
-        ======================================
-        SPRAWDZENIE TERMINU
-        ======================================
-        */
-
         const reservations =
           getReservations();
 
@@ -1782,12 +1708,6 @@
 
         }
 
-
-        /*
-        ======================================
-        NOWA REZERWACJA
-        ======================================
-        */
 
         const newReservation = {
 
@@ -1830,12 +1750,6 @@
           reservations
         );
 
-
-        /*
-        ======================================
-        POTWIERDZENIE
-        ======================================
-        */
 
         bookingDetails.innerHTML = `
 
@@ -1912,12 +1826,6 @@
     );
 
 
-    /*
-    ==========================================
-    BEZPIECZNE WYŚWIETLANIE TEKSTU
-    ==========================================
-    */
-
     function escapeHTML(value) {
 
       return String(value)
@@ -1945,23 +1853,8 @@
     }
 
 
-    /*
-    ==========================================
-    POCZĄTKOWE GODZINY
-    ==========================================
-    */
-
     updateAvailableTimes();
 
-
-    /*
-    ==========================================
-    ODŚWIEŻANIE GODZIN
-    ==========================================
-
-    Co 20 sekund sprawdzamy localStorage,
-    żeby aktualne godziny były odświeżone.
-    */
 
     setInterval(
       () => {
